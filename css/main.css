@@ -204,7 +204,7 @@
     display: inline-block;
     text-align: center;
     line-height: 18px;
-    text-decoration: underline;
+    text-decoration: none;
 }
 /*shopClass_item active 状态*/
 .shopClass_active{
@@ -276,7 +276,7 @@
 .shopList_links span {
     width: 10px;
     height: 8px;
-    background: url("../images/icon/shop_sj.jpg") right center no-repeat;
+    background: url("../images/icon/shop_sj.png") right center no-repeat;
     display: inline-block;
     margin-left: 7px;
 }
