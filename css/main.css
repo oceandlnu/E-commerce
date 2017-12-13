@@ -25,7 +25,7 @@
     color: red;
 }
 .collection{
-    background: url("../images/icon/index.png") left center no-repeat;
+    background: url("../images/icon/collection.jpg") left center no-repeat;
     padding-left:19px;
     font-weight:bold;
 }
@@ -37,4 +37,101 @@
 .logo{
     padding-left: 41px;
     padding-top: 13px;
+}
+/*search*/
+.search_box{
+    padding-top:23px;
+    padding-left: 185px;
+    width: 430px;
+}
+/*.search_text{
+    background-color: #FFF;
+    width: 350px;
+    height: 15px;
+    line-height: 15px;
+    padding: 10px 5px;
+}*/
+.search_text{
+    background-color: #FFF;
+    width: 350px;
+    height: 35px;
+    line-height:35px\9;/*\9代表所有的ie浏览器*/
+    padding: 0 5px;
+}
+.search_btn{
+    width: 70px;
+    height: 35px;
+    font-size: 14px;
+    font-family: "Microsoft YaHei","微软雅黑";
+    background-color: #FF8C00;
+    color: #FFF;
+}
+/*购物车*/
+.shopCar{
+    width: 145px;
+    height: 35px;
+    background-color: #FF8C00;
+    margin-top: 23px;
+    font:14px/35px "Microsoft YaHei","微软雅黑";
+    color: #FFF;
+    margin-right:59px;
+}
+.shopText{
+    /*font-size: 14px;
+    font-family: "Microsoft YaHei","微软雅黑";
+    line-height: 35px;*/
+    /*上面三行可缩写为*/
+    height:100%;
+    width:87px;
+    border-right:#E27A00 solid 1px;
+    background: url("../images/icon/shopItem.jpg") 10px center no-repeat;
+    /*text-indent:40px;*/
+    padding-left: 40px;
+}
+.shopNum{
+    /*border:red solid 1px;*/
+    width: 27px;
+    height: 35px;
+    border-left:#FF9C01 solid 1px;
+    background: url("../images/icon/sj.jpg") 20px center no-repeat;
+    text-align: right;
+    padding-right: 29px;
+}
+/*导航*/
+.navBox{
+    height: 35px;
+    background-color: #1369C0;
+    color: #FFF;
+}
+.shopClass{
+    width: 190px;
+    /*注意，会留下后患*/
+    line-height: 35px;
+    text-align: center;
+}
+.shopClass i{
+    width: 15px;
+    height:9px;
+    overflow: hidden;
+    background: url("../images/icon/down.jpg") left center no-repeat;
+    display: inline-block;
+    margin-left:10px;
+}
+.shopClass,.nav{
+    font-family: "Microsoft YaHei","微软雅黑";
+}
+.nav{
+    line-height: 35px;
+}
+.nav li{
+    float: left;
+}
+.nav a{
+    height: 35px;
+    display: inline-block;
+    padding:0 35px;
+    color: #FFF;
+}
+.nav .active{
+    background-color: #4593FD;
 }
