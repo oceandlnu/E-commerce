@@ -12,12 +12,15 @@
 .rightArea {
     float: right;
 }
-.hide{
+
+.hide {
     display: none;
 }
-.show{
+
+.show {
     display: block;
 }
+
 /*topBar*/
 .topBar {
     height: 31px;
@@ -48,6 +51,10 @@
 .logo {
     padding-left: 41px;
     padding-top: 13px;
+}
+.logo img{
+    width: 110px;
+    height: 60px;
 }
 
 /*search*/
@@ -194,9 +201,11 @@
 .shopClass_item a {
     color: #FFF;
 }
-.shopClass_item a:hover{
+
+.shopClass_item a:hover {
     text-decoration: underline;
 }
+
 .shopClass_item .aLink {
     width: 47px;
     height: 18px;
@@ -206,21 +215,26 @@
     line-height: 18px;
     text-decoration: none;
 }
+
 /*shopClass_item active 状态*/
-.shopClass_active{
+.shopClass_active {
     background-color: #FFF;
     border-left: #4593FD solid 1px;
 }
-.shopClass_active dt{
+
+.shopClass_active dt {
     background: none;
 }
-.shopClass_active a{
+
+.shopClass_active a {
     color: #000;
 }
-.shopClass_active .aLink{
+
+.shopClass_active .aLink {
     color: #FFF;
     text-decoration: none;
 }
+
 /*弹出的菜单*/
 .shopClass_list {
     width: 568px;
@@ -280,44 +294,51 @@
     display: inline-block;
     margin-left: 7px;
 }
+
 /*banner部分*/
-.banner_bar{
+.banner_bar {
     width: 810px;
     height: 326px;
     float: right;
     position: relative;
-    overflow: hidden;/*超过部分隐藏*/
+    overflow: hidden; /*超过部分隐藏*/
 }
-.imgBox{
+
+.imgBox {
     width: 1620px;
-    height:326px;
+    height: 326px;
     position: absolute;
     left: 0;
     top: 0;
 }
-.imgBox li{
+
+.imgBox li {
     float: left;
 }
-.imgBox img{
+
+.imgBox img {
     width: 810px;
     height: 326px;
     display: block;
 }
-.imgNum{
+
+.imgNum {
     position: absolute;
-    left:0;
+    left: 0;
     bottom: 10px;
-    width:100%;
+    width: 100%;
     text-align: center;
 }
-.imgNum a{
+
+.imgNum a {
     width: 20px;
-    height:5px;
+    height: 5px;
     overflow: hidden;
     background-color: #FFF;
     display: inline-block;
-    margin:0 3px;
+    margin: 0 3px;
 }
-.imgNum .active{
+
+.imgNum .active {
     background-color: #FF7700;
 }
