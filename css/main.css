@@ -403,6 +403,9 @@
 }
 
 /*商品列表*/
+.shopList{
+    margin-bottom: 15px;
+}
 .shopList .leftArea {
     width: 190px;
 }
@@ -434,8 +437,10 @@
     height:218px;
 }
 .shop_img img{
-    width:100%;
-    height:218px;
+    width:150px;
+    height:200px;
+    margin-top: 18px;
+    margin-left: 26px;
     display: block;
 }
 .shop_item h3{
@@ -449,5 +454,33 @@
 /*商品列表 右下*/
 .shopItem_sm{
     width: 202px;
+    height:110px;
+    padding-top: 6px;
     border-right:#999 solid 1px;
+    float: left;
+}
+.shopItem_smImg{
+    width: 95px;
+    height: 95px;
+    text-align: center;
+    float: left;
+}
+.shopItem_smImg img{
+    width: 80px;
+    height:80px;
+}
+.shopItem_text{
+    padding-top: 28px;
+    width:100px;
+    float: left;
+}
+.shopItem_text p{
+    color: #FF7300;
+}
+.shopItem_text h3{
+    font-family: "Microsoft YaHei", "微软雅黑";
+    font-size:16px;
+    font-weight:normal;
+    color: #181818;
+    line-height:30px;
 }
