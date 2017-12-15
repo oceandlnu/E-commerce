@@ -416,7 +416,8 @@
 }
 
 /*商品列表 右侧*/
-.shopList_top {
+.shopList_top,
+.shopList_sm{
     margin-right: -4px;
 }
 
@@ -444,4 +445,9 @@
     font-size:14px;
     color: #FF7300;
     line-height:21px;
+}
+/*商品列表 右下*/
+.shopItem_sm{
+    width: 202px;
+    border-right:#999 solid 1px;
 }
