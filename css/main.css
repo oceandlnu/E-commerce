@@ -1013,6 +1013,7 @@
 
 .des_content .dd {
     padding-left: 75px;
+    *padding-left:0;
 }
 
 .des_money {
@@ -1042,8 +1043,13 @@
     text-indent: 16px;
     line-height: 18px;
     margin-right: 10px;
+    float: left;
 }
-
+.hg_icon em{
+    float: left;
+    font-style: normal;
+    line-height:18px;
+}
 /*送货*/
 .des_position {
     background-color: #F2F2F2;
@@ -1096,9 +1102,11 @@
     width:40px;
     padding:0 5px;
     background-color: #FFFFFF;
+    overflow: hidden;
 }
 .des_input input{
-    height:100%;
+    /*height:100%;*/
+    height:32px;
     width:100%;
     line-height:32px\9;
     text-align: center;
@@ -1129,4 +1137,133 @@
 }
 .des_content .des_num{
     line-height:32px;
+}
+/*已选择*/
+.des_select{
+    font-weight:bold;
+    margin: 22px 0 12px;
+    text-indent:17px;
+}
+.des_select span{
+    color: #0479C9;
+}
+.shopping_btn{
+    display: inline-block;
+    width:182px;
+    height:48px;
+    background: url("../images/proDes/shopping_btn.png") left top no-repeat;
+}
+.buy_btn{
+    display: inline-block;
+    width:184px;
+    height:48px;
+    background: url("../images/proDes/buy_btn.png") left top no-repeat;
+}
+.line{
+    width:1px;
+    height:90px;
+    overflow: hidden;
+    background-color: #CCC;
+    display: inline-block;
+    margin:0 40px;
+}
+.shop_buy{
+    text-align: center;
+}
+.shopping_btn,.buy_btn,.line{
+    vertical-align: middle;
+}
+.notes{
+    color: #CCC;
+    text-indent:17px;
+}
+/*产品介绍*/
+.des_info .leftArea{
+    width:190px;
+}
+.des_info .rightArea{
+    width:790px;
+}
+.recommend{
+    border: #CCC solid 1px;
+    background-color: #FFF;
+    padding-bottom: 15px;
+}
+.recommend .tit{
+    height:39px;
+    line-height:39px;
+    border-bottom:#CCC solid 1px;
+    text-indent:15px;
+    font-size: 14px;
+    background-color: #F3F3F3;
+}
+.recommend .item{
+    float: none;
+    height:auto;
+}
+.recommend .money{
+    padding-top:0;
+}
+/*详细介绍*/
+.des_infoContent{
+    border:#CCC solid 1px;
+    background-color: #FFF;
+}
+.des_tit{
+    height:39px;
+    border-bottom: #CCC solid 1px;
+    background: url("../images/proDes/des_title.png") left top repeat-x;
+}
+.des_tit li{
+    float: left;
+    width:50%;
+    font: 14px/39px "宋体";
+    text-align: center;
+    border-left:#CCC solid 1px;
+    margin-left:-1px;
+}
+.des_tit .active{
+    background-color: #0479CA;
+    font-weight:bold;
+    color: #FFF;
+    position: relative;
+}
+.des_tit span{
+    padding-left:32px;
+    display: inline-block;
+    line-height:39px;
+}
+.des_tit .js{
+    background: url("../images/proDes/des_title_icon01.png") left center no-repeat;
+}
+.des_tit .pj{
+    background: url("../images/proDes/des_title_icon02.png") left center no-repeat;
+}
+.ad{
+    padding: 30px 0;
+    text-align: center;
+}
+.info_tit{
+    height:26px;
+    border-bottom: #CCC solid 1px;
+    font-family: "Microsoft YaHei", "微软雅黑";
+}
+.info_tit h3{
+    float: left;
+    font-size:16px;
+    color: #2357A5;
+    border-bottom:#2357A5 solid 1px;
+    height:26px;
+    margin-bottom:-1px;
+    position: relative;
+    padding-right:8px;
+}
+.info_tit h4{
+    font-size:12px;
+    line-height:26px;
+    padding-left:4px;
+    color: #656565;
+}
+.info_text {
+    padding:0 20px;
 }
