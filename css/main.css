@@ -543,7 +543,9 @@
     height: 15px;
     overflow: hidden;
 }
-
+.hr_45 {
+    height: 45px;
+}
 /*产品分类*/
 .products .leftArea {
     width: 185px;
@@ -1247,6 +1249,7 @@
     height:26px;
     border-bottom: #CCC solid 1px;
     font-family: "Microsoft YaHei", "微软雅黑";
+    margin-bottom:18px;
 }
 .info_tit h3{
     float: left;
@@ -1266,4 +1269,13 @@
 }
 .info_text {
     padding:0 20px;
+}
+.info_text p{
+    line-height:22px;
+    font-size:14px;
+    color: #656565;
+}
+.center{
+    display: block;
+    margin:0 auto;
 }
