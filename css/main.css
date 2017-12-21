@@ -1761,6 +1761,9 @@
     line-height: 37px;
     margin-bottom: 30px;
 }
+.cart_info_1{
+    line-height:30px;
+}
 
 .cart_link a:hover,
 .cart_info a:hover {
