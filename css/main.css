@@ -1547,7 +1547,7 @@
     padding-top:26px;
 }
 .step{
-    background: url("../images/shopCat/step.png") left top no-repeat;
+    background: url("../images/shopCar/step.png") left top no-repeat;
     height:19px;
 }
 .step_text{
@@ -1580,7 +1580,7 @@
 }
 .shopping_tit{
     height:31px;
-    background: url("../images/shopCat/shopping_bg.png") left top repeat-x;
+    background: url("../images/shopCar/shopping_bg.png") left top repeat-x;
     /*font-size:16px;*/
     /*line-height:31px;*/
     /*font-family: "Microsoft YaHei", "微软雅黑";*/
@@ -1623,7 +1623,7 @@
 .affirm{
     width:114px;
     height:28px;
-    background: url("../images/shopCat/sh_bt.png") left top no-repeat;
+    background: url("../images/shopCar/sh_bt.png") left top no-repeat;
     cursor: pointer;
 }
 .radio{
@@ -1637,13 +1637,13 @@
 .save_btn{
     width:66px;
     height:24px;
-    background: url("../images/shopCat/save_bt.png") left top no-repeat;
+    background: url("../images/shopCar/save_bt.png") left top no-repeat;
     cursor: pointer;
 }
 .cancel_btn{
     margin-left: 10px;
     width:66px;
     height:24px;
-    background: url("../images/shopCat/cancel_bt.png") left top no-repeat;
+    background: url("../images/shopCar/cancel_bt.png") left top no-repeat;
     cursor: pointer;
 }
