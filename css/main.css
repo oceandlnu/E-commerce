@@ -1581,7 +1581,69 @@
 .shopping_tit{
     height:31px;
     background: url("../images/shopCat/shopping_bg.png") left top repeat-x;
-    font-size:16px;
-    font-family: "Microsoft YaHei", "微软雅黑";
-
+    /*font-size:16px;*/
+    /*line-height:31px;*/
+    /*font-family: "Microsoft YaHei", "微软雅黑";*/
+    color: #444444;
+    font:16px/31px "Microsoft YaHei", "微软雅黑";
+    text-indent:12px;
+}
+.padding_shop{
+    padding:25px 30px;
+}
+.shopping_list_text{
+    float: left;
+    width:76px;
+    line-height:24px;
+}
+.shopping_list li{
+    height:24px;
+    margin-bottom:10px;
+}
+.shopping_list_text em{
+    color: #F30;
+    font-style: normal;
+    margin-right:5px;
+}
+.input{
+    height:22px;
+    border:#CCC solid 1px;
+    padding:0 6px;
+    width:110px;
+}
+.input_text{
+    margin-left: 10px;
+}
+.input_b{
+    width:390px;
+}
+.jian{
+    padding:0 3px;
+}
+.affirm{
+    width:114px;
+    height:28px;
+    background: url("../images/shopCat/sh_bt.png") left top no-repeat;
+    cursor: pointer;
+}
+.radio{
+    position: relative;
+    top:3px;
+    margin-right: 4px;
+}
+.pay_text{
+    margin-left: 19px;
+}
+.save_btn{
+    width:66px;
+    height:24px;
+    background: url("../images/shopCat/save_bt.png") left top no-repeat;
+    cursor: pointer;
+}
+.cancel_btn{
+    margin-left: 10px;
+    width:66px;
+    height:24px;
+    background: url("../images/shopCat/cancel_bt.png") left top no-repeat;
+    cursor: pointer;
 }
