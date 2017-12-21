@@ -1541,3 +1541,47 @@
 .create_advisory a:hover {
     text-decoration: underline;
 }
+/*购物车*/
+.stepBox{
+    width:396px;
+    padding-top:26px;
+}
+.step{
+    background: url("../images/shopCat/step.png") left top no-repeat;
+    height:19px;
+}
+.step_text{
+    color: #FFF;
+    font-size:12px;
+    line-height:30px;
+}
+.step_text li{
+    float: left;
+}
+.step_text .active{
+    color: #F3E402;
+    font-weight:bold;
+}
+.s01,.s03{
+    width:30%;
+}
+.s02{
+    width:40%;
+    text-align: center;
+}
+.s03{
+    text-align: right;
+}
+.shoppingCart{
+    padding-top:10px;
+}
+.shopping_item{
+    border:#CCC solid 1px;
+}
+.shopping_tit{
+    height:31px;
+    background: url("../images/shopCat/shopping_bg.png") left top repeat-x;
+    font-size:16px;
+    font-family: "Microsoft YaHei", "微软雅黑";
+
+}
