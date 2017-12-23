@@ -7,13 +7,17 @@ CREATE TABLE `shop_admin` (
   `username` VARCHAR(20) NOT NULL UNIQUE,
   `password` VARCHAR(32) NOT NULL,
   `email`    VARCHAR(50) NOT NULL
-);
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
 -- 分类表
 DROP TABLE IF EXISTS `shop_cate`;
 CREATE TABLE `shop_cate` (
   `id`    SMALLINT UNSIGNED AUTO_INCREMENT KEY,
   `cName` VARCHAR(50) UNIQUE
-);
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
 -- 商品表
 DROP TABLE IF EXISTS `shop_pro`;
 CREATE TABLE `shop_pro` (
@@ -29,7 +33,9 @@ CREATE TABLE `shop_pro` (
   `isShow`  TINYINT(1)   DEFAULT 1,
   `isHot`   TINYINT(1)   DEFAULT 0,
   `cId`     SMALLINT UNSIGNED NOT NULL
-);
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
 -- 用户表
 DROP TABLE IF EXISTS `shop_user`;
 CREATE TABLE `shop_user` (
@@ -48,4 +54,13 @@ CREATE TABLE `shop_album` (
   `id`        INT UNSIGNED AUTO_INCREMENT KEY,
   `pid`       INT UNSIGNED NOT NULL,
   `albumPath` VARCHAR(50)  NOT NULL
-);
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
+
+-- 创建管理员
+-- 表名shop_admin
+-- 用户名'admin'
+-- 密码md5('admin')
+-- 邮箱136494666@qq.com
+INSERT `shop_admin`(username,password,email) VALUES('admin','21232f297a57a5a743894a0e4a801fc3','136494666@qq.com');
