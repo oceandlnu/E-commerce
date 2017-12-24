@@ -36,7 +36,7 @@
                 <li><img src="getVerify.php" alt="" id="verify"/>&nbsp;&nbsp;<a href="javascript:void()"
                                                                                 onclick="document.getElementById('verify').src='./getVerify.php?'+Math.random()">看不清楚?点击刷新</a>
                 </li>
-                <li class="autoLogin"><input type="checkbox" id="a1" class="checked"><label for="a1">自动登录</label></li>
+                <li class="autoLogin"><input type="checkbox" id="a1" class="checked" name="autoFlag" value="1"><label for="a1">自动登录(一周内自动登录)</label></li>
                 <li><input type="submit" value="" class="login_btn"></li>
             </ul>
         </form>

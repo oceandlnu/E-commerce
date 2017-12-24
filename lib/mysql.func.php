@@ -52,8 +52,9 @@ class mysql
      */
     public function insert($table,$array){
         $keys=join(",",array_keys($array));
-        $values="'".join(",",array_values($array))."'";
+        $values="'".join("','",array_values($array))."'";
         $sql="insert {$table}({$keys}) values({$values})";
+//        var_dump($sql);
         $count=$this->connect()->exec($sql);
         return $count;
     }
