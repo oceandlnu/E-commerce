@@ -37,7 +37,7 @@ class mysql
             $conn->exec($charset);
             //默认这个不是长连接，如果需要数据库长连接，需要最后加一个参数：array(PDO::ATTR_PERSISTENT => true) 变成这样：
 //            $conn = new PDO($this->dsn, $this->user, $this->password, array(PDO::ATTR_PERSISTENT => true));
-            echo "连接成功<br/>";
+//            echo "连接成功<br/>";
             return $conn;
         } catch (PDOException $e) {
             die("Error!:" . $e->getMessage() . "<br/>");
@@ -68,6 +68,7 @@ class mysql
      */
     //update shop_admin set username='ocean' where id='1';
     public function update($table,$array,$where=null){
+        $str=null;
         foreach ($array as $key=>$val){
             if ($str==null){
                 $sep="";
@@ -76,7 +77,7 @@ class mysql
             }
             $str.=$sep.$key."='".$val."'";
         }
-        $sql="`update` {$table} `set` {$str}".($where==null?null:"where ".$where);
+        $sql="update {$table} set {$str} ".($where==null?null:"where ".$where);
         $count=$this->connect()->exec($sql);
         return $count;
     }
@@ -89,7 +90,7 @@ class mysql
      */
     public function delete($table,$where=null){
         $where=($where==null?null:"where ".$where);
-        $sql="`delete` `from` {$table} {$where}";
+        $sql="delete from {$table} {$where}";
         $count=$this->connect()->exec($sql);
         return $count;
     }

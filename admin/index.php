@@ -12,7 +12,7 @@ checkLogined();
 
 <body>
 <div class="head">
-    <div class="logo fl"><a href="#"></a></div>
+    <div class="logo fl"><a href=""></a></div>
     <h3 class="head_text fr">电子商务后台管理系统</h3>
 </div>
 <div class="operation_user clearfix">
@@ -43,21 +43,21 @@ checkLogined();
             <div class="title">管理员</div>
             <ul class="mList">
                 <li>
-                    <h3><span onclick="show('menu1','change1')" id="change1">+</span>商品管理</h3>
+                    <h3 onclick="show('menu1','change1')"><span id="change1">+</span>商品管理</h3>
                     <dl id="menu1" style="display:none;">
                         <dd><a href="" target="mainFrame">添加商品</a></dd>
                         <dd><a href="" target="mainFrame">商品列表</a></dd>
                     </dl>
                 </li>
                 <li>
-                    <h3><span onclick="show('menu2','change2')" id="change2">+</span>分类管理</h3>
+                    <h3 onclick="show('menu2','change2')"><span id="change2">+</span>分类管理</h3>
                     <dl id="menu2" style="display:none;">
                         <dd><a href="" target="mainFrame">添加分类</a></dd>
                         <dd><a href="" target="mainFrame">分类列表</a></dd>
                     </dl>
                 </li>
                 <li>
-                    <h3><span onclick="show('menu3','change3')" id="change3">+</span>订单管理</h3>
+                    <h3 onclick="show('menu3','change3')"><span id="change3">+</span>订单管理</h3>
                     <dl id="menu3" style="display:none;">
                         <dd><a href="#">订单修改</a></dd>
                         <dd><a href="#">订单又修改</a></dd>
@@ -66,21 +66,21 @@ checkLogined();
                     </dl>
                 </li>
                 <li>
-                    <h3><span onclick="show('menu4','change4')" id="change4">+</span>用户管理</h3>
+                    <h3 onclick="show('menu4','change4')"><span id="change4">+</span>用户管理</h3>
                     <dl id="menu4" style="display:none;">
                         <dd><a href="" target="mainFrame">添加用户</a></dd>
                         <dd><a href="" target="mainFrame">用户列表</a></dd>
                     </dl>
                 </li>
                 <li>
-                    <h3><span onclick="show('menu5','change5')" id="change5">+</span>管理员管理</h3>
+                    <h3 onclick="show('menu5','change5')"><span id="change5">+</span>管理员管理</h3>
                     <dl id="menu5" style="display:none;">
                         <dd><a href="addAdmin.php" target="mainFrame">添加管理员</a></dd>
                         <dd><a href="listAdmin.php" target="mainFrame">管理员列表</a></dd>
                     </dl>
                 </li>
                 <li>
-                    <h3><span onclick="show('menu6','change6')" id="change6">+</span>商品图片管理</h3>
+                    <h3 onclick="show('menu6','change6')"><span id="change6">+</span>商品图片管理</h3>
                     <dl id="menu6" style="display:none;">
                         <dd><a href="" target="mainFrame">商品图片列表</a></dd>
                     </dl>
@@ -89,18 +89,18 @@ checkLogined();
         </div>
     </div>
     <script type="text/javascript">
-        function show(num,change){
-            var menu=document.getElementById(num);
-            var change=document.getElementById(change);
-            if(change.innerHTML=="+"){
-                change.innerHTML="-";
-            }else{
-                change.innerHTML="+";
+        function show(num, change) {
+            var menu = document.getElementById(num);
+            var changeStatus = document.getElementById(change);
+            if (changeStatus.innerHTML === "+") {
+                changeStatus.innerHTML = "-";
+            } else {
+                changeStatus.innerHTML = "+";
             }
-            if(menu.style.display=='none'){
-                menu.style.display='';
-            }else{
-                menu.style.display='none';
+            if (menu.style.display === 'none') {
+                menu.style.display = '';
+            } else {
+                menu.style.display = 'none';
             }
         }
     </script>
