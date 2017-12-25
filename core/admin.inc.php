@@ -55,14 +55,16 @@ function getAllAdmin()
     return $row;
 }
 
-function getAdminByPage($page, $pageSize = 2)
+/**
+ * 分页显示
+ * @param $page
+ * @param int $pageSize
+ * @param $totalPage
+ * @return array
+ */
+
+function getAdminByPage($page, $pageSize = 2, $totalPage)
 {
-    $sql = "select id from shop_admin";
-    $mysql = new mysql();
-    $totalRows = $mysql->getResultNum($sql);
-    //得到总页码数
-    global $totalPage;
-    $totalPage = ceil($totalRows / $pageSize);
     if ($page < 1 || $page == null || !is_numeric($page)) {
         $page = 1;
     }
@@ -71,6 +73,7 @@ function getAdminByPage($page, $pageSize = 2)
     }
     $offset = ($page - 1) * $pageSize;
     $sql = "select id,username,email from shop_admin limit {$offset},{$pageSize}";
+    $mysql = new mysql();
     $rows = $mysql->fetchAll($sql);
     return $rows;
 }

@@ -52,8 +52,8 @@ checkLogined();
                 <li>
                     <h3 onclick="show('menu2','change2')"><span id="change2">+</span>分类管理</h3>
                     <dl id="menu2" style="display:none;">
-                        <dd><a href="" target="mainFrame">添加分类</a></dd>
-                        <dd><a href="" target="mainFrame">分类列表</a></dd>
+                        <dd><a href="addCate.php" target="mainFrame">添加分类</a></dd>
+                        <dd><a href="listCate.php" target="mainFrame">分类列表</a></dd>
                     </dl>
                 </li>
                 <li>

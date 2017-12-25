@@ -1,38 +1,36 @@
 <?php
 require_once '../include.php';
 $page = $_REQUEST['page'] ? (int)$_REQUEST['page'] : 1;
-$pageSize=2;
-$sql = "select id from shop_admin";
+$pageSize = 2;
+$sql = "select id from shop_cate";
 $mysql = new mysql();
 $totalRows = $mysql->getResultNum($sql);
 $totalPage = ceil($totalRows / $pageSize);//得到总页码数
-$rows=getAdminByPage($page,$pageSize,$totalPage);
+$rows = getCateByPage($page, $pageSize, $totalPage);
 if (!$rows) {
-    alertMes("抱歉，没有管理员，请添加！", "addAdmin.php");
+    alertMes("抱歉，没有分类，请添加！", "addCate.php");
     exit;
 }
 ?>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>管理员列表</title>
+    <title>分类列表</title>
     <link rel="stylesheet" href="styles/backstage.css">
 </head>
 <body>
 <div class="details">
     <div class="details_operation clearfix">
         <div class="bui_select">
-            <input type="button" value="添&nbsp;&nbsp;加" class="add" onclick="addAdmin()">
+            <input type="button" value="添&nbsp;&nbsp;加" class="add" onclick="addCate()">
         </div>
-
     </div>
     <!--表格-->
     <table class="table" cellspacing="0" cellpadding="0">
         <thead>
         <tr>
             <th width="15%">编号</th>
-            <th width="25%">管理员名称</th>
-            <th width="30%">管理员邮箱</th>
+            <th width="25%">分类</th>
             <th>操作</th>
         </tr>
         </thead>
@@ -43,12 +41,11 @@ if (!$rows) {
                 <td><input type="checkbox" id="c1" class="check"><label for="c1"
                                                                         class="label"><?php echo $row['id']; ?></label>
                 </td>
-                <td><?php echo $row['username']; ?></td>
-                <td><?php echo $row['email']; ?></td>
+                <td><?php echo $row['cName']; ?></td>
                 <td align="center"><input type="button" value="修改" class="btn"
-                                          onclick="editAdmin(<?php echo $row['id']; ?>)"><input type="button" value="删除"
-                                                                                                class="btn"
-                                                                                                onclick="delAdmin(<?php echo $row['id']; ?>)">
+                                          onclick="editCate(<?php echo $row['id']; ?>)"><input type="button" value="删除"
+                                                                                               class="btn"
+                                                                                               onclick="delCate(<?php echo $row['id']; ?>)">
                 </td>
             </tr>
         <?php endforeach; ?>
@@ -61,17 +58,17 @@ if (!$rows) {
     </table>
 </div>
 <script type="text/javascript">
-    function addAdmin() {
-        window.location = "addAdmin.php";
+    function addCate() {
+        window.location = "addCate.php";
     }
 
-    function editAdmin(id) {
-        window.location = "editAdmin.php?id=" + id;
+    function editCate(id) {
+        window.location = "editCate.php?id=" + id;
     }
 
-    function delAdmin(id) {
+    function delCate(id) {
         if (window.confirm("确定要删除吗?删除之后不可恢复")) {
-            window.location = "doAdminAction.php?act=delAdmin&id=" + id;
+            window.location = "doAdminAction.php?act=delCate&id=" + id;
         }
     }
 </script>

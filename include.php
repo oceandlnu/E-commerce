@@ -17,3 +17,4 @@ require_once 'page.func.php';
 require_once 'upload.func.php';
 require_once 'configs.php';
 require_once 'admin.inc.php';
+require_once 'cate.inc.php';
