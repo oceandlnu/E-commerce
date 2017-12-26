@@ -8,12 +8,12 @@
  */
 class mysql
 {
-    var $dbms;  //数据库类型
-    var $host;  //数据库主机名
-    var $dbName;    //使用的数据库
-    var $user;  //数据库连接用户名
-    var $password;  //对应的密码
-    var $dsn;
+    protected $dbms;  //数据库类型
+    protected $host;  //数据库主机名
+    protected $dbName;    //使用的数据库
+    protected $user;  //数据库连接用户名
+    protected $password;  //对应的密码
+    protected $dsn;
 
     public function __construct()
     {
