@@ -14,12 +14,11 @@ class MyPDO
     protected $dbh;
 
 
-    private function __construct($dbHost, $dbUser, $dbPasswd, $dbName, $dbCharset)
+    private function __construct($dbHost, $dbUser, $dbPwd, $dbName, $dbCharset)
     {
         try {
             $this->dsn = 'mysql:host=' . $dbHost . ';dbname=' . $dbName;
-            $this->dbh = new PDO($this->dsn, $dbUser, $dbPasswd);
-            $this->dbh->exec('SET character_set_connection=' . $dbCharset . ', character_set_results=' . $dbCharset . ', character_set_client=binary');
+            $this->dbh = new PDO($this->dsn, $dbUser, $dbPwd);
         } catch (PDOException $e) {
             $this->outputError($e->getMessage());
         }
@@ -36,7 +35,7 @@ class MyPDO
     /**
      * Singleton instance
      *
-     * @return Object
+     *
      */
     public static function getInstance($dbHost, $dbUser, $dbPasswd, $dbName, $dbCharset)
     {
