@@ -45,8 +45,8 @@ checkLogined();
                 <li>
                     <h3 onclick="show('menu1','change1')"><span id="change1">+</span>商品管理</h3>
                     <dl id="menu1" style="display:none;">
-                        <dd><a href="" target="mainFrame">添加商品</a></dd>
-                        <dd><a href="" target="mainFrame">商品列表</a></dd>
+                        <dd><a href="addPro.php" target="mainFrame">添加商品</a></dd>
+                        <dd><a href="#" target="mainFrame">商品列表</a></dd>
                     </dl>
                 </li>
                 <li>
@@ -68,8 +68,8 @@ checkLogined();
                 <li>
                     <h3 onclick="show('menu4','change4')"><span id="change4">+</span>用户管理</h3>
                     <dl id="menu4" style="display:none;">
-                        <dd><a href="" target="mainFrame">添加用户</a></dd>
-                        <dd><a href="" target="mainFrame">用户列表</a></dd>
+                        <dd><a href="#" target="mainFrame">添加用户</a></dd>
+                        <dd><a href="#" target="mainFrame">用户列表</a></dd>
                     </dl>
                 </li>
                 <li>
@@ -82,7 +82,7 @@ checkLogined();
                 <li>
                     <h3 onclick="show('menu6','change6')"><span id="change6">+</span>商品图片管理</h3>
                     <dl id="menu6" style="display:none;">
-                        <dd><a href="" target="mainFrame">商品图片列表</a></dd>
+                        <dd><a href="#" target="mainFrame">商品图片列表</a></dd>
                     </dl>
                 </li>
             </ul>

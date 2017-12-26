@@ -29,14 +29,14 @@ class mysql
      * 连接数据库，初始化
      * @return PDO
      */
-    private function connect()
+    public function connect()
     {
         try {
-            $conn = new PDO($this->dsn, $this->user, $this->password);
+//            $conn = new PDO($this->dsn, $this->user, $this->password);
+            //默认这个不是长连接，如果需要数据库长连接，需要最后加一个参数：array(PDO::ATTR_PERSISTENT => true) 变成这样：
+            $conn = new PDO($this->dsn, $this->user, $this->password, array(PDO::ATTR_PERSISTENT => true));
             $charset="set names ".DB_CHARSET;
             $conn->exec($charset);
-            //默认这个不是长连接，如果需要数据库长连接，需要最后加一个参数：array(PDO::ATTR_PERSISTENT => true) 变成这样：
-//            $conn = new PDO($this->dsn, $this->user, $this->password, array(PDO::ATTR_PERSISTENT => true));
 //            echo "连接成功<br/>";
             return $conn;
         } catch (PDOException $e) {
@@ -54,7 +54,6 @@ class mysql
         $keys=join(",",array_keys($array));
         $values="'".join("','",array_values($array))."'";
         $sql="insert {$table}({$keys}) values({$values})";
-//        var_dump($sql);
         $count=$this->connect()->exec($sql);
         return $count;
     }
@@ -132,5 +131,13 @@ class mysql
         $sth->execute();
         $result = $sth->fetchAll($result_type);
         return count($result);
+    }
+
+    /**
+     * 返回最后插入行的ID或序列值
+     * @return string
+     */
+    public function getInsertId(){
+        return $this->connect()->lastInsertId("id");
     }
 }

@@ -12,8 +12,9 @@
 function addCate()
 {
     $arr = $_POST;
+    $table = "shop_cate";
     $mysql = new mysql();
-    if ($mysql->insert("shop_cate", $arr)) {
+    if ($mysql->insert($table, $arr)) {
         $mes = "添加成功<br/><a href='addCate.php'>继续添加</a>|<a href='listCate.php'>查看分类</a>";
     } else {
         $mes = "添加失败<br/><a href='addCate.php'>重新添加</a>|<a href='listCate.php'>查看分类</a>";
@@ -37,7 +38,8 @@ function getCateByPage($page, $pageSize = 2, $totalPage)
         $page = $totalPage;
     }
     $offset = ($page - 1) * $pageSize;
-    $sql = "select id,cName from shop_cate order by id asc limit {$offset},{$pageSize}";
+    $table = "shop_cate";
+    $sql = "select id,cName from {$table} order by id asc limit {$offset},{$pageSize}";
     $mysql = new mysql();
     $rows = $mysql->fetchAll($sql);
     return $rows;
@@ -50,7 +52,8 @@ function getCateByPage($page, $pageSize = 2, $totalPage)
  */
 function getCateById($id)
 {
-    $sql = "select id,cName from shop_cate where id='{$id}'";
+    $table = "shop_cate";
+    $sql = "select id,cName from {$table} where id='{$id}'";
     $mysql = new mysql();
     return $mysql->fetchOne($sql);
 }
@@ -88,4 +91,17 @@ function delCate($where)
         $mes = "删除失败！<a href='listCate.php'>&nbsp;|&nbsp;重新删除</a>";
     }
     return $mes;
+}
+
+/**
+ * 得到所有分类
+ * @return array
+ */
+function getAllCate()
+{
+    $table = "shop_cate";
+    $sql = "select id,cName from {$table}";
+    $mysql = new mysql();
+    $row = $mysql->fetchAll($sql);
+    return $row;
 }

@@ -28,7 +28,6 @@ CREATE TABLE `shop_pro` (
   `mPrice`  DECIMAL(10, 2)    NOT NULL,
   `iPrice`  DECIMAL(10, 2)    NOT NULL,
   `pDesc`   TEXT,
-  `pImg`    VARCHAR(50)       NOT NULL,
   `pubTime` INT UNSIGNED      NOT NULL,
   `isShow`  TINYINT(1)   DEFAULT 1,
   `isHot`   TINYINT(1)   DEFAULT 0,
