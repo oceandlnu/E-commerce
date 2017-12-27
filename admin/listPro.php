@@ -2,11 +2,15 @@
 require_once '../include.php';
 checkLogined();
 $page = $_REQUEST['page'] ? (int)$_REQUEST['page'] : 1;
+$keywords = $_REQUEST['keywords'] ? $_REQUEST['keywords'] : null;
+$where = $keywords ? "where p.pName like '%{$keywords}%'" : null;
+$order = $_REQUEST['order'] ? $_REQUEST['order'] : null;
+$orderBy = $order ? "order by p." . $order : null;
 $pageSize = 2;
-$sql = "select id from shop_pro";
+$sql = "select id from shop_pro as p {$where}";
 $totalRows = $GLOBALS['mysql']->getResultNum($sql);
 $totalPage = ceil($totalRows / $pageSize);//得到总页码数
-$rows = getProByPage($page, $pageSize, $totalPage);
+$rows = getProByPage($page, $pageSize, $totalPage, $where,$orderBy);
 if (!$rows) {
     alertMes("抱歉，没有商品，请添加！", "addPro.php");
     exit;
@@ -35,28 +39,28 @@ if (!$rows) {
         </div>
         <div class="fr">
             <div class="text">
-                <span>商品名称：</span>
+                <span>商品价格：</span>
                 <div class="bui_select">
-                    <select name="" id="" class="select">
-                        <option value="1">测试内容</option>
-                        <option value="1">测试内容</option>
-                        <option value="1">测试内容</option>
+                    <select name="" id="" class="select" onchange="change(this.value)">
+                        <option value="">-请选择-</option>
+                        <option value="iPrice asc">由低到高</option>
+                        <option value="iPrice desc">由高到低</option>
                     </select>
                 </div>
             </div>
             <div class="text">
                 <span>上架时间：</span>
                 <div class="bui_select">
-                    <select name="" id="" class="select">
-                        <option value="1">测试内容</option>
-                        <option value="1">测试内容</option>
-                        <option value="1">测试内容</option>
+                    <select name="" id="" class="select" onchange="change(this.value)">
+                        <option value="">-请选择-</option>
+                        <option value="pubTime desc">最新发布</option>
+                        <option value="pubTime asc">历史发布</option>
                     </select>
                 </div>
             </div>
             <div class="text">
                 <span>搜索</span>
-                <input type="text" value="" class="search">
+                <input type="text" value="" class="search" id="search" onkeypress="search()" placeholder="请输入商品名称">
             </div>
         </div>
     </div>
@@ -66,8 +70,10 @@ if (!$rows) {
         <tr>
             <th width="10%">编号</th>
             <th width="20%">商品名称</th>
-            <th width="20%">商品分类</th>
-            <th width="20%">是否上架</th>
+            <th width="10%">商品分类</th>
+            <th width="10%">是否上架</th>
+            <th width="10%">商品价格</th>
+            <th width="15%">上架时间</th>
             <th>操作</th>
         </tr>
         </thead>
@@ -86,11 +92,13 @@ if (!$rows) {
                     echo $show;
                     ?>
                 </td>
+                <td><?php echo $row['iPrice']; ?>元</td>
+                <td><?php echo date("Y-m-d H:i:s",$row['pubTime']); ?></td>
                 <td align="center">
                     <input type="button" value="详情" class="btn"
                            onclick="showDetail(<?php echo $row['id']; ?>,'<?php echo $row['pName']; ?>')"><input
                             type="button" value="修改" class="btn" onclick="editPro(<?php echo $row['id']; ?>)"><input
-                            type="button" value="删除" class="btn">
+                            type="button" value="删除" class="btn" onclick="delPro(<?php echo $row['id']; ?>)">
                     <div id="showDetail<?php echo $row['id']; ?>" style="display:none;">
                         <table class="table" cellspacing="0" cellpadding="0">
                             <tr>
@@ -158,7 +166,7 @@ if (!$rows) {
         <?php endforeach; ?>
         <?php if ($totalRows > $pageSize){ ?>
         <tr>
-            <td colspan="5"><?php echo showPage($page, $totalPage);
+            <td colspan="7"><?php echo showPage($page, $totalPage, "keywords={$keywords}&order={$order}");
                 } ?></td>
         </tr>
         </tbody>
@@ -185,6 +193,23 @@ if (!$rows) {
 
     function editPro(id) {
         window.location = 'editPro.php?id=' + id;
+    }
+
+    function delPro(id) {
+        if (window.confirm("确定要删除吗?删除之后不可恢复")) {
+            window.location = 'doAdminAction.php?act=delPro&id=' + id;
+        }
+    }
+
+    function search() {
+        if (event.keyCode === 13) {
+            var val = document.getElementById("search").value;
+            window.location = "listPro.php?keywords=" + val;
+        }
+    }
+
+    function change(val) {
+        window.location = "listPro.php?order=" + val;
     }
 </script>
 </body>

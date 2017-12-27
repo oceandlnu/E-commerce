@@ -56,7 +56,7 @@ $proInfo=getProById($id);
             <td>
                 <select name="cId">
                     <?php foreach ($rows as $row): ?>
-                        <option value="<?php echo $row['id']; ?>" <?php $row['id']==$proInfo['cId']?"selected='selected'":null;?>><?php echo $row['cName']; ?></option>
+                        <option value="<?php echo $row['id']; ?>" <?php echo ($row['id']==$proInfo['cId'])?"selected='selected'":null;?>><?php echo $row['cName']; ?></option>
                     <?php endforeach; ?>
                 </select>
             </td>

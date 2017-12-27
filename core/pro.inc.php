@@ -71,8 +71,41 @@ function editPro($id)
     return $mes;
 }
 
-function delPro()
+function delPro($id)
 {
+    $where="id={$id}";
+    $table="shop_pro";
+    $res=$GLOBALS['mysql']->delete($table,$where);
+    $proImgs=getImgByProId($id);
+    $path="../images/uploads/";
+    if (!empty($proImgs)){
+        foreach ($proImgs as $proImg){
+            if (file_exists($path.$proImg['albumPath'])){
+                unlink($path.$proImg['albumPath']);
+            }
+            if (file_exists($path."image_50/".$proImg['albumPath'])){
+                unlink($path."image_50/".$proImg['albumPath']);
+            }
+            if (file_exists($path."image_220/".$proImg['albumPath'])){
+                unlink($path."image_220/".$proImg['albumPath']);
+            }
+            if (file_exists($path."image_350/".$proImg['albumPath'])){
+                unlink($path."image_350/".$proImg['albumPath']);
+            }
+            if (file_exists($path."image_800/".$proImg['albumPath'])){
+                unlink($path."image_800/".$proImg['albumPath']);
+            }
+        }
+    }
+    $table1="shop_album";
+    $where1="pid={$id}";
+    $res1=$GLOBALS['mysql']->delete($table1,$where1);
+    if ($res&&$res1){
+        $mes = "删除成功<br/><a href='listPro.php' target='mainFrame'>查看列表</a>";
+    }else {
+        $mes = "删除失败<br/><a href='listPro.php' target='mainFrame'>重新删除</a>";
+    }
+    return $mes;
 }
 
 /**
@@ -95,7 +128,7 @@ function getAllPro()
  * @param $totalPage
  * @return mixed
  */
-function getProByPage($page, $pageSize = 2, $totalPage)
+function getProByPage($page, $pageSize = 2, $totalPage,$where=null,$orderBy=null)
 {
     if ($page < 1 || $page == null || !is_numeric($page)) {
         $page = 1;
@@ -105,7 +138,7 @@ function getProByPage($page, $pageSize = 2, $totalPage)
     }
     $offset = ($page - 1) * $pageSize;
     $table = "shop_pro";
-    $sql = "select p.id,p.pName,p.pSn,p.pNum,p.mPrice,p.iPrice,p.pDesc,p.pubTime,p.isShow,p.isHot,c.cName from shop_pro as p join shop_cate as c on p.cId=c.id order by id asc limit {$offset},{$pageSize}";
+    $sql = "select p.id,p.pName,p.pSn,p.pNum,p.mPrice,p.iPrice,p.pDesc,p.pubTime,p.isShow,p.isHot,c.cName from shop_pro as p join shop_cate as c on p.cId=c.id {$where} {$orderBy} limit {$offset},{$pageSize}";
     $rows = $GLOBALS['mysql']->fetchAll($sql);
     return $rows;
 }

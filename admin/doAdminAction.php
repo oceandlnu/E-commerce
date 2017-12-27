@@ -32,7 +32,7 @@ if ($act == "logout") {
 }elseif ($act == "editPro") {
     $mes = editPro($id);
 }elseif ($act == "delPro") {
-    $mes = delPro();
+    $mes = delPro($id);
 }
 ?>
 <html>
