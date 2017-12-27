@@ -1,5 +1,6 @@
 <?php
 require_once '../include.php';
+checkLogined();
 $id=$_REQUEST['id'];
 $row=getCateById($id);
 ?>

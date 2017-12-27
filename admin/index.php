@@ -46,7 +46,7 @@ checkLogined();
                     <h3 onclick="show('menu1','change1')"><span id="change1">+</span>商品管理</h3>
                     <dl id="menu1" style="display:none;">
                         <dd><a href="addPro.php" target="mainFrame">添加商品</a></dd>
-                        <dd><a href="#" target="mainFrame">商品列表</a></dd>
+                        <dd><a href="listPro.php" target="mainFrame">商品列表</a></dd>
                     </dl>
                 </li>
                 <li>

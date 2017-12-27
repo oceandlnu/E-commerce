@@ -1,10 +1,10 @@
 <?php
 require_once '../include.php';
+checkLogined();
 $page = $_REQUEST['page'] ? (int)$_REQUEST['page'] : 1;
 $pageSize = 2;
 $sql = "select id from shop_cate";
-$mysql = new mysql();
-$totalRows = $mysql->getResultNum($sql);
+$totalRows = $GLOBALS['mysql']->getResultNum($sql);
 $totalPage = ceil($totalRows / $pageSize);//得到总页码数
 $rows = getCateByPage($page, $pageSize, $totalPage);
 if (!$rows) {

@@ -7,7 +7,7 @@
  */
 function buildRandomString($type = 1, $length = 4)
 {
-    $chars="";
+    $chars = "";
     if ($type == 1) {//纯数字验证码
         $chars = join("", range(0, 9));
     } elseif ($type == 2) {//纯字母验证码
@@ -26,8 +26,9 @@ function buildRandomString($type = 1, $length = 4)
  * 生成唯一字符串
  * @return string
  */
-function getUniName(){
-    return md5(uniqid(microtime(true),true));
+function getUniName()
+{
+    return md5(uniqid(microtime(true), true));
 }
 
 /**
@@ -35,7 +36,8 @@ function getUniName(){
  * @param $filename
  * @return string
  */
-function getExt($filename){
-    $fileExt=strtolower(end(explode(".",$filename)));
+function getExt($filename)
+{
+    $fileExt = strtolower(end(explode(".", $filename)));
     return $fileExt;
 }

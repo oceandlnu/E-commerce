@@ -377,7 +377,7 @@ class MyPDO
     }
 }
 
-$pdo = MyPDO::getInstance('localhost', 'root', '密码', 'DBname', 'utf8');
+//$pdo = MyPDO::getInstance('localhost', 'root', '密码', 'DBname', 'utf8');
 //do something...
-$pdo->destruct();
+//$pdo->destruct();
 ?>

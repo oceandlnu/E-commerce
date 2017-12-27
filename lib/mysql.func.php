@@ -63,6 +63,35 @@ class MyPDO
     }
 
     /**
+     * 调试
+     * @param $debuginfo
+     */
+    private function debug($debuginfo)
+    {
+        var_dump($debuginfo);
+        exit();
+    }
+
+    /**
+     * getPDOError 捕获PDO错误信息
+     */
+    private function getPDOError()
+    {
+        if ($this->dbh->errorCode() != '00000') {
+            $arrayError = $this->dbh->errorInfo();
+            $this->outputError($arrayError[2]);
+        }
+    }
+
+    /**
+     * 关闭数据库连接
+     */
+    public function destruct()
+    {
+        $this->dbh = null;
+    }
+
+    /**
      * 记录的插入操作
      * @param string $table
      * @param array $array
@@ -164,5 +193,17 @@ class MyPDO
     public function getInsertId()
     {
         return $this->dbh->lastInsertId("id");
+    }
+
+    /**
+     * 截断表
+     * @param $table
+     * @return int
+     */
+    public function truncate($table)
+    {
+        $sql = "TRUNCATE TABLE {$table}";
+        $res = $this->dbh->exec($sql);
+        return $res;
     }
 }

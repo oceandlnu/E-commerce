@@ -5,12 +5,14 @@ $rows = getAllCate();
 if (!$rows) {
     alertMes("没有相应分类，请先添加分类!!", "addCate.php");
 }
+$id=$_REQUEST['id'];
+$proInfo=getProById($id);
 ?>
 <!doctype html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>添加商品</title>
+    <title>编辑商品</title>
     <link href="styles/global.css" rel="stylesheet" type="text/css" media="all"/>
     <script type="text/javascript" charset="utf-8" src="../plugins/kindeditor/kindeditor.js"></script>
     <script type="text/javascript" charset="utf-8" src="../plugins/kindeditor/lang/zh_CN.js"></script>
@@ -43,42 +45,42 @@ if (!$rows) {
 </head>
 <body>
 <h3>添加商品</h3>
-<form action="doAdminAction.php?act=addPro" method="post" enctype="multipart/form-data">
+<form action="doAdminAction.php?act=editPro&id=<?php echo $id;?>" method="post" enctype="multipart/form-data">
     <table width="70%" border="1" cellpadding="5" cellspacing="0" bgcolor="#cccccc">
         <tr>
             <td align="right">商品名称</td>
-            <td><input type="text" name="pName" placeholder="请输入商品名称"/></td>
+            <td><input type="text" name="pName" value="<?php echo $proInfo['pName'] ?>"/></td>
         </tr>
         <tr>
             <td align="right">商品分类</td>
             <td>
                 <select name="cId">
                     <?php foreach ($rows as $row): ?>
-                        <option value="<?php echo $row['id']; ?>"><?php echo $row['cName']; ?></option>
+                        <option value="<?php echo $row['id']; ?>" <?php $row['id']==$proInfo['cId']?"selected='selected'":null;?>><?php echo $row['cName']; ?></option>
                     <?php endforeach; ?>
                 </select>
             </td>
         </tr>
         <tr>
             <td align="right">商品货号</td>
-            <td><input type="text" name="pSn" placeholder="请输入商品货号"/></td>
+            <td><input type="text" name="pSn" value="<?php echo $proInfo['pSn'] ?>"/></td>
         </tr>
         <tr>
             <td align="right">商品数量</td>
-            <td><input type="text" name="pNum" placeholder="请输入商品数量"/></td>
+            <td><input type="text" name="pNum" value="<?php echo $proInfo['pNum'] ?>"/></td>
         </tr>
         <tr>
             <td align="right">商品市场价</td>
-            <td><input type="text" name="mPrice" placeholder="请输入商品市场价"/></td>
+            <td><input type="text" name="mPrice" value="<?php echo $proInfo['mPrice'] ?>"/></td>
         </tr>
         <tr>
             <td align="right">商品慕课价</td>
-            <td><input type="text" name="iPrice" placeholder="请输入商品销售价"/></td>
+            <td><input type="text" name="iPrice" value="<?php echo $proInfo['iPrice'] ?>"/></td>
         </tr>
         <tr>
             <td align="right">商品描述</td>
             <td>
-                <textarea name="pDesc" id="editor_id" style="width:100%;height:150px;"></textarea>
+                <textarea name="pDesc" id="editor_id" style="width:100%;height:150px;"><?php echo $proInfo['pDesc'] ?></textarea>
             </td>
         </tr>
         <tr>
@@ -89,7 +91,7 @@ if (!$rows) {
             </td>
         </tr>
         <tr>
-            <td colspan="2"><input type="submit" value="发布商品"/></td>
+            <td colspan="2"><input type="submit" value="修改商品"/></td>
         </tr>
     </table>
 </form>

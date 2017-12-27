@@ -1,9 +1,9 @@
 <?php
 require_once '../include.php';
+checkLogined();
 $id=$_REQUEST['id'];
 $sql="select id,username,password,email from shop_admin where id='{$id}'";
-$mysql=new mysql();
-$row=$mysql->fetchOne($sql);
+$row=$GLOBALS['mysql']->fetchOne($sql);
 ?>
 <html>
 <head>

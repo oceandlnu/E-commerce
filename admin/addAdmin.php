@@ -1,3 +1,7 @@
+<?php
+require_once '../include.php';
+checkLogined();
+?>
 <html>
 <head>
     <meta charset="UTF-8">
