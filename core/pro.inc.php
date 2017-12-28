@@ -115,10 +115,9 @@ function delPro($id)
 function getAllPro()
 {
     $table = "shop_pro";
-    $sql = "select p.id,p.pName,p.pSn,p.pNum,p.mPrice,p.iPrice,p.pDesc,p.pubTime,p.isShow,p.isHot,c.cName from shop_pro as p join shop_cate as c on p.cId=c.id";
+    $sql = "select p.id,p.pName,p.pSn,p.pNum,p.mPrice,p.iPrice,p.pDesc,p.pubTime,p.isShow,p.isHot,c.cName from {$table} as p join shop_cate as c on p.cId=c.id";
     $rows = $GLOBALS['mysql']->fetchAll($sql);
     return $rows;
-
 }
 
 /**
@@ -165,4 +164,39 @@ function getProById($id)
     $table = "shop_pro";
     $sql = "select p.id,p.pName,p.pSn,p.pNum,p.mPrice,p.iPrice,p.pDesc,p.pubTime,p.isShow,p.isHot,c.cName,p.cId from {$table} as p join shop_cate as c on p.cId=c.id where p.id={$id}";
     return $GLOBALS['mysql']->fetchOne($sql);
+}
+
+/**
+ * 根据cid得到4条产品
+ * @param $cId
+ * @return mixed
+ */
+function getProBycId($cId)
+{
+    $table = "shop_pro";
+    $sql = "select p.id,p.pName,p.pSn,p.pNum,p.mPrice,p.iPrice,p.pDesc,p.pubTime,p.isShow,p.isHot,c.cName,p.cId from {$table} as p join shop_cate as c on p.cId=c.id where p.cId={$cId} limit 4";
+    return $GLOBALS['mysql']->fetchAll($sql);
+}
+
+/**
+ * 根据cid得到下4条产品
+ * @param $cId
+ * @return mixed
+ */
+function getSmallProBycId($cId){
+    $table = "shop_pro";
+    $sql = "select p.id,p.pName,p.pSn,p.pNum,p.mPrice,p.iPrice,p.pDesc,p.pubTime,p.isShow,p.isHot,c.cName,p.cId from {$table} as p join shop_cate as c on p.cId=c.id where p.cId={$cId} limit 4,4";
+    return $GLOBALS['mysql']->fetchAll($sql);
+}
+
+/**
+ * 检查分类下是否有产品
+ * @param $cId
+ * @return mixed
+ */
+function checkProExist($cId){
+    $table="shop_pro";
+    $sql="select * from {$table} where cId={$cId}";
+    $rows=$GLOBALS['mysql']->fetchAll($sql);
+    return $rows;
 }

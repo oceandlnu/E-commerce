@@ -59,10 +59,8 @@ checkLogined();
                 <li>
                     <h3 onclick="show('menu3','change3')"><span id="change3">+</span>订单管理</h3>
                     <dl id="menu3" style="display:none;">
-                        <dd><a href="#">订单修改</a></dd>
-                        <dd><a href="#">订单又修改</a></dd>
-                        <dd><a href="#">订单总是修改</a></dd>
-                        <dd><a href="#">测试内容你看着改</a></dd>
+                        <dd><a href="#">订单修改1</a></dd>
+                        <dd><a href="#">订单修改2</a></dd>
                     </dl>
                 </li>
                 <li>

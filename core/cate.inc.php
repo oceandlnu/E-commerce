@@ -55,15 +55,21 @@ function editCate($where)
  * @param $id
  * @return string
  */
-function delCate($where)
+function delCate($id)
 {
-    $table = "shop_cate";
-    if ($GLOBALS['mysql']->delete($table, $where)) {
-        $mes = "删除成功<a href='listCate.php'>&nbsp;|&nbsp;查看分类</a>";
-    } else {
-        $mes = "删除失败！<a href='listCate.php'>&nbsp;|&nbsp;重新删除</a>";
+    $res=checkProExist($id);
+    if (!$res){
+        $table = "shop_cate";
+        $where="id={$id}";
+        if ($GLOBALS['mysql']->delete($table, $where)) {
+            $mes = "删除成功<a href='listCate.php'>&nbsp;|&nbsp;查看分类</a>";
+        } else {
+            $mes = "删除失败！<a href='listCate.php'>&nbsp;|&nbsp;重新删除</a>";
+        }
+        return $mes;
+    }else{
+        alertMes("不能删除分类，请先删除该分类下的商品","listPro.php");
     }
-    return $mes;
 }
 
 /**

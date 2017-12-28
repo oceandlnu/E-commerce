@@ -1582,7 +1582,7 @@ $.widget("ui.draggable", $.ui.mouse, {
 		//Cache the margins of the original element
 		this._cacheMargins();
 
-		//Store the helper's css position
+		//Store the helper's styles position
 		this.cssPosition = this.helper.css( "position" );
 		this.scrollParent = this.helper.scrollParent();
 		this.offsetParent = this.helper.offsetParent();
@@ -5076,7 +5076,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 			scroll = this.cssPosition === "absolute" && !(this.scrollParent[0] !== document && $.contains(this.scrollParent[0], this.offsetParent[0])) ? this.offsetParent : this.scrollParent, scrollIsRootNode = (/(html|body)/i).test(scroll[0].tagName);
 
 		// This is another very weird special case that only happens for relative elements:
-		// 1. If the css position is relative
+		// 1. If the styles position is relative
 		// 2. and the scroll parent is the document or similar to the offset parent
 		// we have to refresh the relative offset during the scroll so there are no jumps
 		if(this.cssPosition === "relative" && !(this.scrollParent[0] !== document && this.scrollParent[0] !== this.offsetParent[0])) {
@@ -13565,7 +13565,7 @@ $.effects.animateClass = function( value, duration, easing, callback ) {
 			applyClassChange();
 
 			// for each animated element,
-			// clear all css properties that were animated
+			// clear all styles properties that were animated
 			$.each( arguments, function() {
 				var el = this.el;
 				$.each( this.diff, function(key) {
@@ -14712,7 +14712,7 @@ $.effects.effect.size = function( o, done ) {
 		}
 	};
 
-	// Scale the css box
+	// Scale the styles box
 	if ( scale === "box" || scale === "both" ) {
 
 		// Vertical props scaling

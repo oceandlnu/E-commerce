@@ -6339,7 +6339,7 @@ KindEditor.plugin('baidumap', function(K) {
 					var centerObj = map.getCenter();
 					var center = centerObj.lng + ',' + centerObj.lat;
 					var zoom = map.getZoom();
-					var url = [checkbox[0].checked ? self.pluginsPath + 'baidumap/index.html' : 'http://api.map.baidu.com/staticimage',
+					var url = [checkbox[0].checked ? self.pluginsPath + 'baidumap/index.php' : 'http://api.map.baidu.com/staticimage',
 						'?center=' + encodeURIComponent(center),
 						'&zoom=' + encodeURIComponent(zoom),
 						'&width=' + mapWidth,
@@ -6437,7 +6437,7 @@ KindEditor.plugin('code', function(K) {
 				'<select class="ke-code-type">',
 				'<option value="js">JavaScript</option>',
 				'<option value="html">HTML</option>',
-				'<option value="css">CSS</option>',
+				'<option value="styles">CSS</option>',
 				'<option value="php">PHP</option>',
 				'<option value="pl">Perl</option>',
 				'<option value="py">Python</option>',
