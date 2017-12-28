@@ -35,15 +35,17 @@ CREATE TABLE `shop_pro` (
 )
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
--- 用户表
+-- 用户表，activeFlag需要发送激活邮件
 DROP TABLE IF EXISTS `shop_user`;
 CREATE TABLE `shop_user` (
-  `id`       INT UNSIGNED                   AUTO_INCREMENT KEY,
-  `username` VARCHAR(20)           NOT NULL UNIQUE,
-  `password` CHAR(32)              NOT NULL,
-  `sex`      ENUM ("男", "女", "保密") NOT NULL DEFAULT "保密",
-  `face`     VARCHAR(50)           NOT NULL,
-  `regTime`  INT UNSIGNED          NOT NULL
+  `id`         INT UNSIGNED                   AUTO_INCREMENT KEY,
+  `username`   VARCHAR(20)           NOT NULL UNIQUE,
+  `password`   CHAR(32)              NOT NULL,
+  `email`      VARCHAR(30)           NOT NULL,
+  `sex`        ENUM ("男", "女", "保密") NOT NULL DEFAULT "保密",
+  `face`       VARCHAR(50)           NOT NULL,
+  `regTime`    INT UNSIGNED          NOT NULL,
+  `activeFlag` TINYINT(1)                     DEFAULT 0
 )
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
@@ -62,4 +64,5 @@ CREATE TABLE `shop_album` (
 -- 用户名'admin'
 -- 密码md5('admin')
 -- 邮箱136494666@qq.com
-INSERT `shop_admin`(username,password,email) VALUES('admin','21232f297a57a5a743894a0e4a801fc3','136494666@qq.com');
+INSERT `shop_admin` (username, password, email)
+VALUES ('admin', '21232f297a57a5a743894a0e4a801fc3', '136494666@qq.com');

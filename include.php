@@ -21,4 +21,5 @@ require_once 'admin.inc.php';
 require_once 'cate.inc.php';
 require_once 'pro.inc.php';
 require_once 'album.inc.php';
+require_once 'user.inc.php';
 $mysql = MyPDO::getInstance();

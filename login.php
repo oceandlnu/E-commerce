@@ -24,6 +24,7 @@
 </div>
 <div class="loginBox">
     <div class="login_cont">
+        <form action="doAction.php?act=login" method="post">
         <ul class="login clearfix">
             <li class="l_tit">邮箱/用户名/手机号</li>
             <li class="mb_10"><input type="text" class="login_input user_icon"></li>
@@ -34,6 +35,7 @@
             <li class="forgetPasswd"><a href="">忘记密码?</a></li>
             <li><input type="button" value="" class="login_btn"></li>
         </ul>
+        </form>
         <div class="login_partners">
             <p class="l_tit">使用合作方帐号登录网站：</p>
             <ul class="login_list clearfix">
@@ -55,7 +57,7 @@
             </ul>
         </div>
     </div>
-    <a href="" class="reg_link"></a>
+    <a href="reg.php" class="reg_link"></a>
 </div>
 <div class="hr_25"></div>
 <div class="footer">

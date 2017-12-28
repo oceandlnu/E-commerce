@@ -66,8 +66,8 @@ checkLogined();
                 <li>
                     <h3 onclick="show('menu4','change4')"><span id="change4">+</span>用户管理</h3>
                     <dl id="menu4" style="display:none;">
-                        <dd><a href="#" target="mainFrame">添加用户</a></dd>
-                        <dd><a href="#" target="mainFrame">用户列表</a></dd>
+                        <dd><a href="addUser.php" target="mainFrame">添加用户</a></dd>
+                        <dd><a href="listUser.php" target="mainFrame">用户列表</a></dd>
                     </dl>
                 </li>
                 <li>

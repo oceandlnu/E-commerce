@@ -32,7 +32,7 @@ function checkLogined()
 function addAdmin()
 {
     $arr = $_POST;
-    $table="shop_admin";
+    $table = "shop_admin";
     $arr['password'] = md5($_POST['password']);
     if ($GLOBALS['mysql']->insert($table, $arr)) {
         $mes = "添加成功<br/><a href='addAdmin.php'>继续添加</a>|<a href='listAdmin.php'>查看管理员列表</a>";
@@ -48,7 +48,7 @@ function addAdmin()
  */
 function getAllAdmin()
 {
-    $table="shop_admin";
+    $table = "shop_admin";
     $sql = "select id,username,password,email from {$table}";
     $row = $GLOBALS['mysql']->fetchAll($sql);
     return $row;
@@ -71,7 +71,7 @@ function getAdminByPage($page, $pageSize = 2, $totalPage)
         $page = $totalPage;
     }
     $offset = ($page - 1) * $pageSize;
-    $table="shop_admin";
+    $table = "shop_admin";
     $sql = "select id,username,email from {$table} limit {$offset},{$pageSize}";
     $rows = $GLOBALS['mysql']->fetchAll($sql);
     return $rows;
@@ -128,4 +128,38 @@ function logout()
     }
     session_destroy();
     header("location:login.php");
+}
+
+/**
+ * 添加用户
+ * @return string
+ */
+function addUser()
+{
+    $arr = $_POST;
+    if ($arr['password'] !== $arr['confirmPwd']) {
+        alertMes("两次输入密码不一致，请重新输入", "addUser.php");
+        exit;
+    }
+    $facePath = "../images/userFaces";
+    $table = "shop_user";
+    unset($arr['confirmPwd']);
+    $arr['password'] = md5($_POST['password']);
+    $arr['regTime'] = time();
+    $uploadFile = uploadFile($facePath);
+    if (!empty($uploadFile)) {
+        $arr['face'] = $uploadFile[0]['name'];
+    } else {
+        return "头像添加失败<br/><a href='addUser.php'>重新添加</a>";
+    }
+    if ($GLOBALS['mysql']->insert($table, $arr)) {
+        $mes = "添加成功!<br/><a href='addUser.php'>继续添加</a>|<a href='listUser.php'>查看列表</a>";
+    } else {
+        $filename = $facePath . "/" . $uploadFile[0]['name'];
+        if (file_exists($filename)) {
+            unlink($filename);
+        }
+        $mes = "添加失败!<br/><a href='addUser.php'>重新添加</a>|<a href='listUser.php'>查看列表</a>";
+    }
+    return $mes;
 }

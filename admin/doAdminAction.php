@@ -32,6 +32,8 @@ if ($act == "logout") {
     $mes = editPro($id);
 }elseif ($act == "delPro") {
     $mes = delPro($id);
+}elseif ($act=="addUser"){
+    $mes=addUser();
 }
 ?>
 <html>
