@@ -30,9 +30,9 @@
                 <li class="mb_10"><input name="username" type="text" class="login_input user_icon"
                                          placeholder="请输入管理员帐号"></li>
                 <li class="l_tit">密码</li>
-                <li class="mb_10"><input name="password" type="password" class="login_input passwd_icon"></li>
+                <li class="mb_10"><input name="password" type="password" class="login_input passwd_icon" placeholder="请输入密码"></li>
                 <li class="l_tit">验证码</li>
-                <li class="mb_10"><input name="verify" type="text" class="login_input"></li>
+                <li class="mb_10"><input name="verify" type="text" class="login_input" placeholder="请输入验证码"></li>
                 <li><img src="getVerify.php" alt="" id="verify"/>&nbsp;&nbsp;<a href="javascript:void()"
                                                                                 onclick="document.getElementById('verify').src='./getVerify.php?'+Math.random()">看不清楚?点击刷新</a>
                 </li>

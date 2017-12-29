@@ -7,8 +7,8 @@
  */
 require_once '../include.php';
 $act = $_REQUEST['act'];
-$id=null;
-if (!empty($_REQUEST['id'])){
+$id = null;
+if (!empty($_REQUEST['id'])) {
     $id = $_REQUEST['id'];
 }
 if ($act == "logout") {
@@ -22,18 +22,21 @@ if ($act == "logout") {
 } elseif ($act == "addCate") {
     $mes = addCate();
 } elseif ($act == "editCate") {
-    $where = "id={$id}";
-    $mes = editCate($where);
+    $mes = editCate($id);
 } elseif ($act == "delCate") {
     $mes = delCate($id);
 } elseif ($act == "addPro") {
     $mes = addPro();
-}elseif ($act == "editPro") {
+} elseif ($act == "editPro") {
     $mes = editPro($id);
-}elseif ($act == "delPro") {
+} elseif ($act == "delPro") {
     $mes = delPro($id);
-}elseif ($act=="addUser"){
-    $mes=addUser();
+} elseif ($act == "addUser") {
+    $mes = addUser();
+} elseif ($act == "editUser") {
+    $mes = editUser($id);
+} elseif ($act == "delUser") {
+    $mes = delUser($id);
 }
 ?>
 <html>

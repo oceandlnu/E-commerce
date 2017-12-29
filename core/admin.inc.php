@@ -150,7 +150,7 @@ function addUser()
     if (!empty($uploadFile)) {
         $arr['face'] = $uploadFile[0]['name'];
     } else {
-        return "头像添加失败<br/><a href='addUser.php'>重新添加</a>";
+        return "添加失败，请添加头像<br/><a href='addUser.php'>重新添加</a>|<a href='listUser.php'>查看列表</a>";
     }
     if ($GLOBALS['mysql']->insert($table, $arr)) {
         $mes = "添加成功!<br/><a href='addUser.php'>继续添加</a>|<a href='listUser.php'>查看列表</a>";
@@ -160,6 +160,46 @@ function addUser()
             unlink($filename);
         }
         $mes = "添加失败!<br/><a href='addUser.php'>重新添加</a>|<a href='listUser.php'>查看列表</a>";
+    }
+    return $mes;
+}
+
+/**
+ * 编辑用户
+ * @param $id
+ * @return string
+ */
+function editUser($id)
+{
+    $arr = $_POST;
+    $arr['password'] = md5($_POST['password']);
+    $table = "shop_user";
+    if ($GLOBALS['mysql']->update($table, $arr, "id={$id}")) {
+        $mes = "编辑成功<a href='listUser.php'>&nbsp;|&nbsp;查看列表</a>";
+    } else {
+        $mes = "编辑失败！<a href='listUser.php'>&nbsp;|&nbsp;重新修改</a>";
+    }
+    return $mes;
+}
+
+/**
+ * 删除用户
+ * @param $id
+ * @return string
+ */
+function delUser($id)
+{
+    $table = "shop_user";
+    $sql="select face from {$table} where id={$id}";
+    $row=$GLOBALS['mysql']->fetchOne($sql);
+    $facePath = "../images/userFaces";
+    if (!empty($row) && file_exists($facePath."/".$row['face'])){
+        unlink($facePath."/".$row['face']);
+    }
+    if ($GLOBALS['mysql']->delete($table, "id={$id}")) {
+        $mes = "删除成功<a href='listUser.php'>&nbsp;|&nbsp;查看列表</a>";
+    } else {
+        $mes = "删除失败！<a href='listUser.php'>&nbsp;|&nbsp;重新删除</a>";
     }
     return $mes;
 }

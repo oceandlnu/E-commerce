@@ -14,7 +14,7 @@ function reg()
 {
     $arr = $_POST;
     if ($arr['password'] !== $arr['confirmPwd']) {
-        alertMes("两次输入密码不一致，请重新输入", "addUser.php");
+        alertMes("两次输入密码不一致，请重新输入", "reg.php");
         exit;
     }
     unset($arr['confirmPwd']);
@@ -61,7 +61,7 @@ function login()
         $_SESSION['username'] = $row['username'];
         $mes = "登陆成功！<br/>3秒钟后跳转到首页<meta http-equiv='refresh' content='3;url=index.php'/>";
     } else {
-        $mes = "登陆失败！<a href='login.php'>重新登陆</a>";
+        $mes = "登陆失败！<br/>3秒钟后跳转到登录页面<meta http-equiv='refresh' content='3;url=login.php'/>";
     }
     return $mes;
 }
@@ -77,4 +77,27 @@ function userOut()
     }
     session_destroy();
     header("location:index.php");
+}
+
+/**
+ * 分页显示
+ * @param $page
+ * @param int $pageSize
+ * @param $totalPage
+ * @return array
+ */
+
+function getUserByPage($page, $pageSize = 2, $totalPage)
+{
+    if ($page < 1 || $page == null || !is_numeric($page)) {
+        $page = 1;
+    }
+    if ($page >= $totalPage) {
+        $page = $totalPage;
+    }
+    $offset = ($page - 1) * $pageSize;
+    $table = "shop_user";
+    $sql = "select id,username,email,sex,activeFlag from {$table} limit {$offset},{$pageSize}";
+    $rows = $GLOBALS['mysql']->fetchAll($sql);
+    return $rows;
 }

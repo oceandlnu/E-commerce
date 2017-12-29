@@ -16,7 +16,7 @@
     <div class="logoBar login_logo">
         <div class="comWidth">
             <div class="logo fl">
-                <a href="#"><img src="images/logo.png" alt="慕课网"></a>
+                <a href="index.php"><img src="images/logo.png" alt="电商网站"></a>
             </div>
             <h3 class="welcome_title">欢迎登录</h3>
         </div>
@@ -27,13 +27,13 @@
         <form action="doAction.php?act=login" method="post">
         <ul class="login clearfix">
             <li class="l_tit">邮箱/用户名/手机号</li>
-            <li class="mb_10"><input type="text" class="login_input user_icon"></li>
+            <li class="mb_10"><input type="text" class="login_input user_icon" name="username" placeholder="请输入用户名"></li>
             <li class="l_tit">密码</li>
-            <li class="mb_10"><input type="text" class="login_input passwd_icon"></li>
+            <li class="mb_10"><input type="password" class="login_input passwd_icon" name="password" placeholder="请输入密码"></li>
             <li class="autoLogin fl"><input type="checkbox" id="a1" class="checked"><label for="a1">自动登录</label></li>
             <li class="controlsLogin fl"><input type="checkbox" id="a2" class="checked"><label for="a2">安全控件登录</label></li>
-            <li class="forgetPasswd"><a href="">忘记密码?</a></li>
-            <li><input type="button" value="" class="login_btn"></li>
+            <li class="forgetPasswd"><a href="#">忘记密码?</a></li>
+            <li><input type="submit" value="" class="login_btn"></li>
         </ul>
         </form>
         <div class="login_partners">

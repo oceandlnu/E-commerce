@@ -1914,6 +1914,13 @@
     cursor: pointer;
 }
 
+.reg_btn {
+    width: 309px;
+    height: 36px;
+    background: url("../images/icon/reg_btn.jpg");
+    cursor: pointer;
+}
+
 .login_partners {
     padding-top: 34px;
 }

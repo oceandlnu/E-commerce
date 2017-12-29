@@ -38,10 +38,11 @@ function getCateById($id)
  * @param $id
  * @return string
  */
-function editCate($where)
+function editCate($id)
 {
     $arr = $_POST;
     $table = "shop_cate";
+    $where = "id={$id}";
     if ($GLOBALS['mysql']->update($table, $arr, $where)) {
         $mes = "修改成功<a href='listCate.php'>&nbsp;|&nbsp;查看分类</a>";
     } else {

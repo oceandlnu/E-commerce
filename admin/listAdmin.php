@@ -40,10 +40,7 @@ if (!$rows) {
         <tbody>
         <?php foreach ($rows as $row): ?>
             <tr>
-                <!--这里的id和for里面的c1 需要循环出来-->
-                <td><input type="checkbox" id="c1" class="check"><label for="c1"
-                                                                        class="label"><?php echo $row['id']; ?></label>
-                </td>
+                <td><input type="checkbox" id="<?php echo $row['id']; ?>" class="check"><label for="<?php echo $row['id']; ?>" class="label"><?php echo $row['id']; ?></label></td>
                 <td><?php echo $row['username']; ?></td>
                 <td><?php echo $row['email']; ?></td>
                 <td align="center"><input type="button" value="修改" class="btn"

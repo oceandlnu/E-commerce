@@ -16,7 +16,7 @@
     <div class="logoBar reg_logo">
         <div class="comWidth">
             <div class="logo fl">
-                <a href="#"><img src="images/logo.png" alt="慕课网"></a>
+                <a href="index.php"><img src="images/logo.png" alt="电商网站"></a>
             </div>
             <h3 class="welcome_title">欢迎注册</h3>
         </div>
@@ -36,24 +36,24 @@
                 </li>
                 <li><span class="reg_item"><i>*</i>确认密码：</span>
                     <div class="input_item"><input type="password" class="login_input passwd_icon" name="confirmPwd"
-                                                   placeholder="重新输入密码"></div>
+                                                   placeholder="请确认密码"></div>
                 </li>
                 <li><span class="reg_item"><i>*</i>邮箱：</span>
                     <div class="input_item"><input type="email" class="login_input" name="email"
                                                    placeholder="请输入合法邮箱"></div>
                 </li>
                 <li><span class="reg_item"><i>*</i>性别：</span>
-                    <div class="input_item"><input type="radio" name="sex" value="0">男 <input
-                                type="radio" name="sex" value="1">女 <input type="radio" name="sex" value="2" checked="checked">保密
+                    <div class="input_item"><input type="radio" name="sex" value="男">男 <input
+                                type="radio" name="sex" value="女">女 <input type="radio" name="sex" value="保密" checked="checked">保密
                     </div>
                 </li>
                 <li><span class="reg_item"><i>*</i>头像：</span>
-                    <div class="input_item"><input type="file" name="myFace"></div>
+                    <div class="input_item"><input type="file" name="face"></div>
                 </li>
                 <li class="autoLogin"><span class="reg_item">&nbsp;</span><input type="checkbox" id="t1"
                                                                                  class="checked"><label for="t1">我已阅读并同意<a
                                 href="">《用户注册协议》</a></label></li>
-                <li><span class="reg_item">&nbsp;</span><input type="image" src="images/reg.jpg"></li>
+                <li><span class="reg_item">&nbsp;</span><input type="submit" value="" class="reg_btn"></li>
             </ul>
         </form>
     </div>
