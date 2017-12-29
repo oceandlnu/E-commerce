@@ -10,9 +10,9 @@ function addAlbum($arr)
 {
     $table = "shop_album";
     if ($GLOBALS['mysql']->insert($table, $arr)) {
-        $mes = "添加成功<br/><a href='addAlbum.php'>继续添加</a>|<a href='listAlbum.php'>查看</a>";
+        $mes = "添加成功<br/><a href='addAlbum.php'>继续添加</a>|<a href='listAlbum.php'>查看列表</a>";
     } else {
-        $mes = "添加失败<br/><a href='addAlbum.php'>重新添加</a>|<a href='listAlbum.php'>查看</a>";
+        $mes = "添加失败<br/><a href='addAlbum.php'>重新添加</a>|<a href='listAlbum.php'>查看列表</a>";
     }
     return $mes;
 }
@@ -54,7 +54,7 @@ function doWaterText($id){
         $filename="../images/uploads/image_800/".$row['albumPath'];
         waterText($filename);
     }
-    $mes="操作成功";
+    $mes = "操作成功<br/><a href='listProImages.php'>查看列表</a>";
     return $mes;
 }
 
@@ -69,6 +69,6 @@ function doWaterPic($id){
         $filename="../images/uploads/image_800/".$row['albumPath'];
         waterPic($filename);
     }
-    $mes="操作成功";
+    $mes = "操作成功<br/><a href='listProImages.php'>查看列表</a>";
     return $mes;
 }
