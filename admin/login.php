@@ -16,9 +16,9 @@
     <div class="logoBar login_logo">
         <div class="comWidth">
             <div class="logo fl">
-                <a href="#"><img src="../images/logo.png" alt="慕课网"></a>
+                <a href="../index.php"><img src="../images/logo.png" alt="后台管理"></a>
             </div>
-            <h3 class="welcome_title">欢迎登录</h3>
+            <h3 class="welcome_title">后台登录</h3>
         </div>
     </div>
 </div>

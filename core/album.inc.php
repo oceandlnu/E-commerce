@@ -42,3 +42,33 @@ function getProImgsById($id)
     $row = $GLOBALS['mysql']->fetchAll($sql);
     return $row;
 }
+
+/**
+ * 添加文字水印
+ * @param $id
+ * @return string
+ */
+function doWaterText($id){
+    $rows=getProImgsById($id);
+    foreach ($rows as $row){
+        $filename="../images/uploads/image_800/".$row['albumPath'];
+        waterText($filename);
+    }
+    $mes="操作成功";
+    return $mes;
+}
+
+/**
+ * 添加图片水印
+ * @param $id
+ * @return string
+ */
+function doWaterPic($id){
+    $rows=getProImgsById($id);
+    foreach ($rows as $row){
+        $filename="../images/uploads/image_800/".$row['albumPath'];
+        waterPic($filename);
+    }
+    $mes="操作成功";
+    return $mes;
+}

@@ -37,6 +37,10 @@ if ($act == "logout") {
     $mes = editUser($id);
 } elseif ($act == "delUser") {
     $mes = delUser($id);
+} elseif ($act == "waterText") {
+    $mes = doWaterText($id);
+} elseif ($act == "waterPic") {
+    $mes = doWaterPic($id);
 }
 ?>
 <html>

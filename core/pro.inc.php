@@ -200,3 +200,26 @@ function checkProExist($cId){
     $rows=$GLOBALS['mysql']->fetchAll($sql);
     return $rows;
 }
+
+/**
+ * 得到产品信息
+ * @return mixed
+ */
+function getProInfo(){
+    $table="shop_pro";
+    $sql="select id,pName from {$table} order by id asc";
+    $rows=$GLOBALS['mysql']->fetchAll($sql);
+    return $rows;
+}
+
+/**
+ * 得到图片的位置，通过id
+ * @param $id
+ * @return mixed
+ */
+function getAllImgByProId($id){
+    $table="shop_album";
+    $sql="select a.albumPath from {$table} a where pid={$id}";
+    $rows=$GLOBALS['mysql']->fetchAll($sql);
+    return $rows;
+}

@@ -80,7 +80,7 @@ checkLogined();
                 <li>
                     <h3 onclick="show('menu6','change6')"><span id="change6">+</span>商品图片管理</h3>
                     <dl id="menu6" style="display:none;">
-                        <dd><a href="#" target="mainFrame">商品图片列表</a></dd>
+                        <dd><a href="listProImages.php" target="mainFrame">商品图片列表</a></dd>
                     </dl>
                 </li>
             </ul>

@@ -7,6 +7,7 @@
  */
 require_once '../include.php';
 $username = $_POST['username'];
+$username=addslashes($username);//防止SQL注入
 $password = md5($_POST['password']);
 $verify = $_POST['verify'];
 $verify_1 = $_SESSION['verify'];

@@ -83,3 +83,50 @@ function thumb($filename, $destination = null, $dst_w = null, $dst_h = null, $is
     }
     return $dstFilename;
 }
+
+/**
+ * 添加文字水印
+ * @param $filename
+ * @param string $text
+ * @param string $fontfile
+ */
+function waterText($filename, $text = "ocean", $fontfile = "simsun.ttf")
+{
+    $fileInfo = getimagesize($filename);
+    $mime = $fileInfo ['mime'];
+    $createFun = str_replace("/", "createfrom", $mime);
+    $outFun = str_replace("/", null, $mime);
+    $image = $createFun ($filename);
+    $color = imagecolorallocatealpha($image, 255, 0, 0, 50);
+    $fontfile = "../fonts/{$fontfile}";
+    imagettftext($image, 14, 0, 10, 10, $color, $fontfile, $text);
+    //	header ( "content-type:" . $mime );
+    $outFun ($image, $filename);
+    imagedestroy($image);
+}
+
+/**
+ * 添加图片水印
+ * @param $dstFile
+ * @param string $srcFile
+ * @param int $pct
+ */
+function waterPic($dstFile, $srcFile = "../images/logo.png", $pct = 30)
+{
+    $srcFileInfo = getimagesize($srcFile);
+    $src_w = $srcFileInfo [0];//原图的宽度
+    $src_h = $srcFileInfo [1];//原图的高度
+    $dstFileInfo = getimagesize($dstFile);
+    $srcMime = $srcFileInfo ['mime'];
+    $dstMime = $dstFileInfo ['mime'];
+    $createSrcFun = str_replace("/", "createfrom", $srcMime);
+    $createDstFun = str_replace("/", "createfrom", $dstMime);
+    $outDstFun = str_replace("/", null, $dstMime);
+    $dst_im = $createDstFun ($dstFile);
+    $src_im = $createSrcFun ($srcFile);
+    imagecopymerge($dst_im, $src_im, 10, 10, 0, 0, $src_w, $src_h, $pct);
+//	header ( "content-type:" . $dstMime );
+    $outDstFun ($dst_im, $dstFile);
+    imagedestroy($src_im);
+    imagedestroy($dst_im);
+}

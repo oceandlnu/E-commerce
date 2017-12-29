@@ -49,8 +49,7 @@ function login()
     $table = "shop_user";
     $username = $_POST['username'];
     //addslashes():使用反斜线引用特殊字符
-    //$username=addslashes($username);
-//    $username = mysql_escape_string($username);
+    $username=addslashes($username);
     $password = md5($_POST['password']);
     $sql = "select * from {$table} where username='{$username}' and password='{$password}'";
     //$resNum=getResultNum($sql);

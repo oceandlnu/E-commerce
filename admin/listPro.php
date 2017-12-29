@@ -10,7 +10,7 @@ $pageSize = 2;
 $sql = "select id from shop_pro as p {$where}";
 $totalRows = $GLOBALS['mysql']->getResultNum($sql);
 $totalPage = ceil($totalRows / $pageSize);//得到总页码数
-$rows = getProByPage($page, $pageSize, $totalPage, $where,$orderBy);
+$rows = getProByPage($page, $pageSize, $totalPage, $where, $orderBy);
 if (!$rows) {
     alertMes("抱歉，没有商品，请添加！", "addPro.php");
     exit;
@@ -80,7 +80,8 @@ if (!$rows) {
         <tbody>
         <?php foreach ($rows as $row): ?>
             <tr>
-                <td><input type="checkbox" id="<?php echo $row['id']; ?>" class="check"><label for="<?php echo $row['id']; ?>" class="label"><?php echo $row['id']; ?></label></td>
+                <td><input type="checkbox" id="<?php echo $row['id']; ?>" class="check"><label
+                            for="<?php echo $row['id']; ?>" class="label"><?php echo $row['id']; ?></label></td>
                 <td><?php echo $row['pName']; ?></td>
                 <td><?php echo $row['cName']; ?></td>
                 <td>
@@ -90,7 +91,7 @@ if (!$rows) {
                     ?>
                 </td>
                 <td><?php echo $row['iPrice']; ?>元</td>
-                <td><?php echo date("Y-m-d H:i:s",$row['pubTime']); ?></td>
+                <td><?php echo date("Y-m-d H:i:s", $row['pubTime']); ?></td>
                 <td align="center">
                     <input type="button" value="详情" class="btn"
                            onclick="showDetail(<?php echo $row['id']; ?>,'<?php echo $row['pName']; ?>')"><input
