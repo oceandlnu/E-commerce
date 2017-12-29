@@ -1,10 +1,10 @@
 <?php
 require_once '../include.php';
 checkLogined();
-$page = $_REQUEST['page'] ? (int)$_REQUEST['page'] : 1;
-$keywords = $_REQUEST['keywords'] ? $_REQUEST['keywords'] : null;
+$page = !empty($_REQUEST['page']) ? (int)$_REQUEST['page'] : 1;
+$keywords = !empty($_REQUEST['keywords']) ? $_REQUEST['keywords'] : null;
 $where = $keywords ? "where p.pName like '%{$keywords}%'" : null;
-$order = $_REQUEST['order'] ? $_REQUEST['order'] : null;
+$order = !empty($_REQUEST['order']) ? $_REQUEST['order'] : null;
 $orderBy = $order ? "order by p." . $order : null;
 $pageSize = 2;
 $sql = "select id from shop_pro as p {$where}";
@@ -96,7 +96,7 @@ if (!$rows) {
         <?php endforeach; ?>
         <?php if ($totalRows > $pageSize){ ?>
         <tr>
-            <td colspan="7"><?php echo showPage($page, $totalPage, "keywords={$keywords}&order={$order}");
+            <td colspan="4"><?php echo showPage($page, $totalPage, "keywords={$keywords}&order={$order}");
                 } ?></td>
         </tr>
         </tbody>

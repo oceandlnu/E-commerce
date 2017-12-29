@@ -89,7 +89,8 @@ if (!$rows) {
             </td>
         </tr>
         <tr>
-            <td colspan="2"><input type="submit" value="发布商品"/></td>
+            <td align="right">操作</td>
+            <td><input type="submit" value="发布商品"/></td>
         </tr>
     </table>
 </form>

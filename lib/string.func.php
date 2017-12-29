@@ -38,6 +38,7 @@ function getUniName()
  */
 function getExt($filename)
 {
-    $fileExt = strtolower(end(explode(".", $filename)));
+    $ext=explode(".", $filename);
+    $fileExt = strtolower(end($ext));
     return $fileExt;
 }

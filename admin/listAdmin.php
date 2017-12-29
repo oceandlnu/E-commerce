@@ -1,7 +1,7 @@
 <?php
 require_once '../include.php';
 checkLogined();
-$page = $_REQUEST['page'] ? (int)$_REQUEST['page'] : 1;
+$page = !empty($_REQUEST['page']) ? (int)$_REQUEST['page'] : 1;
 $pageSize = 2;
 $table = "shop_admin";
 $sql = "select id from {$table}";

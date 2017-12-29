@@ -64,5 +64,4 @@ CREATE TABLE `shop_album` (
 -- 用户名'admin'
 -- 密码md5('admin')
 -- 邮箱136494666@qq.com
-INSERT `shop_admin` (username, password, email)
-VALUES ('admin', '21232f297a57a5a743894a0e4a801fc3', '136494666@qq.com');
+INSERT `shop_admin` (username, password, email) VALUES ('admin', '21232f297a57a5a743894a0e4a801fc3', '136494666@qq.com');

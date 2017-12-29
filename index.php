@@ -27,7 +27,7 @@ if (empty($cates)) {
             </div>
             <div class="rightArea">
                 欢迎来到电商网站！
-                <?php if ($_SESSION['loginFlag']): ?>
+                <?php if (!empty($_SESSION['loginFlag'])): ?>
                     <span>欢迎您</span><?php echo $_SESSION['username']; ?>
                     <a href="doAction.php?act=userOut">[退出]</a>
                 <?php else: ?>

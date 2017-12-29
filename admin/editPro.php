@@ -91,7 +91,8 @@ $proInfo=getProById($id);
             </td>
         </tr>
         <tr>
-            <td colspan="2"><input type="submit" value="修改商品"/></td>
+            <td align="right">操作</td>
+            <td><input type="submit" value="修改商品"/></td>
         </tr>
     </table>
 </form>

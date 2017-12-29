@@ -23,7 +23,7 @@ $row=$GLOBALS['mysql']->fetchOne($sql);
         </tr>
         <tr>
             <td align="right">管理员密码</td>
-            <td><input type="password" name="password" value="<?php echo $row['password'];?>"></td>
+            <td><input type="password" name="password" placeholder="请输入新密码"></td>
         </tr>
         <tr>
             <td align="right">管理员邮箱</td>
