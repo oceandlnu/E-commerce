@@ -35,7 +35,7 @@ function addAdmin()
     $table = "shop_admin";
     $arr['password'] = md5($_POST['password']);
     if ($GLOBALS['mysql']->insert($table, $arr)) {
-        $mes = "添加成功<br/><a href='addAdmin.php'>继续添加</a>|<a href='listAdmin.php'>查看管理员列表</a>";
+        $mes = "添加成功<br/><a href='addAdmin.php'>继续添加</a>|<a href='listAdmin.html'>查看管理员列表</a>";
     } else {
         $mes = "添加失败<br/><a href='addAdmin.php'>重新添加</a>";
     }
@@ -88,9 +88,9 @@ function editAdmin($id)
     $arr['password'] = md5($_POST['password']);
     $table = "shop_admin";
     if ($GLOBALS['mysql']->update($table, $arr, "id={$id}")) {
-        $mes = "编辑成功<a href='listAdmin.php'>&nbsp;|&nbsp;查看管理员列表</a>";
+        $mes = "编辑成功<a href='listAdmin.html'>&nbsp;|&nbsp;查看管理员列表</a>";
     } else {
-        $mes = "编辑失败！<a href='listAdmin.php'>&nbsp;|&nbsp;请重新修改</a>";
+        $mes = "编辑失败！<a href='listAdmin.html'>&nbsp;|&nbsp;请重新修改</a>";
     }
     return $mes;
 }
@@ -104,9 +104,9 @@ function delAdmin($id)
 {
     $table = "shop_admin";
     if ($GLOBALS['mysql']->delete($table, "id={$id}")) {
-        $mes = "删除成功<a href='listAdmin.php'>&nbsp;|&nbsp;查看管理员列表</a>";
+        $mes = "删除成功<a href='listAdmin.html'>&nbsp;|&nbsp;查看管理员列表</a>";
     } else {
-        $mes = "删除失败！<a href='listAdmin.php'>&nbsp;|&nbsp;请重新删除</a>";
+        $mes = "删除失败！<a href='listAdmin.html'>&nbsp;|&nbsp;请重新删除</a>";
     }
     return $mes;
 }
