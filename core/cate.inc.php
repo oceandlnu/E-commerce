@@ -46,7 +46,7 @@ function editCate($id)
     if ($GLOBALS['mysql']->update($table, $arr, $where)) {
         $mes = "修改成功<a href='listCate.php'>&nbsp;|&nbsp;查看分类</a>";
     } else {
-        $mes = "修改失败！<a href='listCate.php'>&nbsp;|&nbsp;重新修改</a>";
+        $mes = "修改失败<a href='listCate.php'>&nbsp;|&nbsp;重新修改</a>";
     }
     return $mes;
 }

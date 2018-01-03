@@ -33,7 +33,10 @@ class Setting_Smarty extends Smarty{
             mkdir($this->getCacheDir(),0777,true);
         }
 
-        $this->caching=Smarty::CACHING_LIFETIME_CURRENT;
+        $this->setLeftDelimiter('{#');
+        $this->setRightDelimiter('#}');
+//        $this->caching=Smarty::CACHING_LIFETIME_CURRENT;
+        $this->caching=Smarty::CACHING_OFF;//每次都生成缓存，便于调试
         $this->assign('app_name','ocean');
 
 //        $this->testInstall();

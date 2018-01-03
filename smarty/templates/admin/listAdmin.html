@@ -13,7 +13,6 @@
 
     </div>
     <!--表格-->
-    {nocache}
     <table class="table" cellspacing="0" cellpadding="0">
         <thead>
         <tr>
@@ -24,27 +23,26 @@
         </tr>
         </thead>
         <tbody>
-        {foreach $rows as $row}
+        {#foreach $rows as $row#}
         <tr>
-            <td><input type="checkbox" id="{$row.id}" class="check"><label for="{$row.id}"
-                                                                           class="label">{$row.id}</label></td>
-            <td>{$row.username}</td>
-            <td>{$row.email}</td>
+            <td><input type="checkbox" id="{#$row.id#}" class="check"><label for="{#$row.id#}"
+                                                                           class="label">{#$row.id#}</label></td>
+            <td>{#$row.username#}</td>
+            <td>{#$row.email#}</td>
             <td align="center"><input type="button" value="修改" class="btn"
-                                      onclick="editAdmin({$row.id})"><input type="button" value="删除"
+                                      onclick="editAdmin({#$row.id#})"><input type="button" value="删除"
                                                                             class="btn"
-                                                                            onclick="delAdmin({$row.id})">
+                                                                            onclick="delAdmin({#$row.id#})">
             </td>
         </tr>
-        {/foreach}
-        {if $totalRows gt $pageSize}
+        {#/foreach#}
+        {#if $totalRows gt $pageSize#}
         <tr>
-            <td colspan="4">{$showPage}</td>
+            <td colspan="4">{#$showPage#}</td>
         </tr>
-        {/if}
+        {#/if#}
         </tbody>
     </table>
-    {/nocache}
 </div>
 <script type="text/javascript">
     function addAdmin() {

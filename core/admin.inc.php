@@ -20,7 +20,11 @@ function checkAdmin($sql)
  */
 function checkLogined()
 {
-    if ($_SESSION['adminId'] == "" && $_COOKIE['adminId'] == "") {
+    $isset_session = isset($_SESSION['adminId']) ? $_SESSION['adminId'] : null;
+    $isset_cookie = isset($_COOKIE['adminId']) ? $_COOKIE['adminId'] : null;
+//    var_dump($isset_session);
+//    var_dump($isset_cookie);
+    if ($isset_cookie == null && $isset_session == null) {
         alertMes("请先登录", "login.php");
     }
 }
@@ -35,7 +39,7 @@ function addAdmin()
     $table = "shop_admin";
     $arr['password'] = md5($_POST['password']);
     if ($GLOBALS['mysql']->insert($table, $arr)) {
-        $mes = "添加成功<br/><a href='addAdmin.php'>继续添加</a>|<a href='listAdmin.html'>查看管理员列表</a>";
+        $mes = "添加成功<br/><a href='addAdmin.php'>继续添加</a>|<a href='listAdmin.php'>查看管理员列表</a>";
     } else {
         $mes = "添加失败<br/><a href='addAdmin.php'>重新添加</a>";
     }
@@ -88,9 +92,9 @@ function editAdmin($id)
     $arr['password'] = md5($_POST['password']);
     $table = "shop_admin";
     if ($GLOBALS['mysql']->update($table, $arr, "id={$id}")) {
-        $mes = "编辑成功<a href='listAdmin.html'>&nbsp;|&nbsp;查看管理员列表</a>";
+        $mes = "编辑成功<a href='listAdmin.php'>&nbsp;|&nbsp;查看管理员列表</a>";
     } else {
-        $mes = "编辑失败！<a href='listAdmin.html'>&nbsp;|&nbsp;请重新修改</a>";
+        $mes = "编辑失败！<a href='listAdmin.php'>&nbsp;|&nbsp;请重新修改</a>";
     }
     return $mes;
 }
@@ -104,9 +108,9 @@ function delAdmin($id)
 {
     $table = "shop_admin";
     if ($GLOBALS['mysql']->delete($table, "id={$id}")) {
-        $mes = "删除成功<a href='listAdmin.html'>&nbsp;|&nbsp;查看管理员列表</a>";
+        $mes = "删除成功<a href='listAdmin.php'>&nbsp;|&nbsp;查看管理员列表</a>";
     } else {
-        $mes = "删除失败！<a href='listAdmin.html'>&nbsp;|&nbsp;请重新删除</a>";
+        $mes = "删除失败！<a href='listAdmin.php'>&nbsp;|&nbsp;请重新删除</a>";
     }
     return $mes;
 }
@@ -119,15 +123,19 @@ function logout()
     $_SESSION = array();
     if (isset($_COOKIE[session_name()])) {
         setcookie(session_name(), "", time() - 1);
+//        setcookie('PHPSESSID', "", time() - 1);
     }
     if (isset($_COOKIE['adminId'])) {
-        setcookie('adminId', "" . time() - 1);
+        setcookie('adminId', "", time() - 1);
     }
     if (isset($_COOKIE['adminName'])) {
         setcookie('adminName', "", time() - 1);
     }
     session_destroy();
-    header("location:login.php");
+//    var_dump($_SESSION);
+//    var_dump($_COOKIE);
+//    header("location:login.php");
+    alertMes("成功注销", "login.php");
 }
 
 /**
@@ -190,11 +198,11 @@ function editUser($id)
 function delUser($id)
 {
     $table = "shop_user";
-    $sql="select face from {$table} where id={$id}";
-    $row=$GLOBALS['mysql']->fetchOne($sql);
+    $sql = "select face from {$table} where id={$id}";
+    $row = $GLOBALS['mysql']->fetchOne($sql);
     $facePath = "../images/userFaces";
-    if (!empty($row) && file_exists($facePath."/".$row['face'])){
-        unlink($facePath."/".$row['face']);
+    if (!empty($row) && file_exists($facePath . "/" . $row['face'])) {
+        unlink($facePath . "/" . $row['face']);
     }
     if ($GLOBALS['mysql']->delete($table, "id={$id}")) {
         $mes = "删除成功<a href='listUser.php'>&nbsp;|&nbsp;查看列表</a>";

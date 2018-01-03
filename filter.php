@@ -2,5 +2,5 @@
 require_once 'include.php';
 $smarty = new Setting_Smarty();
 //$smarty->testInstall();
-$smarty->display('user/login.html');
+$smarty->display('user/filter.html');
 ?>

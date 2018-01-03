@@ -11,51 +11,60 @@ $id = null;
 if (!empty($_REQUEST['id'])) {
     $id = $_REQUEST['id'];
 }
-if ($act == "logout") {
-    logout();
-} elseif ($act == "addAdmin") {
-    $mes = addAdmin();
-} elseif ($act == "editAdmin") {
-    $mes = editAdmin($id);
-} elseif ($act == "delAdmin") {
-    $mes = delAdmin($id);
-} elseif ($act == "addCate") {
-    $mes = addCate();
-} elseif ($act == "editCate") {
-    $mes = editCate($id);
-} elseif ($act == "delCate") {
-    $mes = delCate($id);
-} elseif ($act == "addPro") {
-    $mes = addPro();
-} elseif ($act == "editPro") {
-    $mes = editPro($id);
-} elseif ($act == "delPro") {
-    $mes = delPro($id);
-} elseif ($act == "addUser") {
-    $mes = addUser();
-} elseif ($act == "editUser") {
-    $mes = editUser($id);
-} elseif ($act == "delUser") {
-    $mes = delUser($id);
-} elseif ($act == "waterText") {
-    $mes = doWaterText($id);
-} elseif ($act == "waterPic") {
-    $mes = doWaterPic($id);
+switch ($act) {
+    case "logout":
+        logout();
+        break;
+    case "addAdmin":
+        $mes = addAdmin();
+        break;
+    case "editAdmin":
+        $mes = editAdmin($id);
+        break;
+    case "delAdmin":
+        $mes = delAdmin($id);
+        break;
+    case "addCate":
+        $mes = addCate();
+        break;
+    case "editCate":
+        $mes = editCate($id);
+        break;
+    case "delCate":
+        $mes = delCate($id);
+        break;
+    case "addPro":
+        $mes = addPro();
+        break;
+    case "editPro":
+        $mes = editPro($id);
+        break;
+    case "delPro":
+        $mes = delPro($id);
+        break;
+    case "addUser":
+        $mes = addUser();
+        break;
+    case "editUser":
+        $mes = editUser($id);
+        break;
+    case "delUser":
+        $mes = delUser($id);
+        break;
+    case "waterText":
+        $mes = doWaterText($id);
+        break;
+    case "waterPic":
+        $mes = doWaterPic($id);
+        break;
+    default:
+        $mes = "Input Error";
+        break;
 }
+$mes = !empty($mes) ? $mes : null;
+$smarty = new Setting_Smarty();
+//$smarty->testInstall();
+$smarty->assign('mes', $mes);
+$smarty->display('admin/doAdminAction.html');
 ?>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-<?php
-if ($mes) {
-    echo $mes;
-}
-?>
-</body>
-</html>
+

@@ -7,11 +7,11 @@
  */
 require_once '../include.php';
 $username = $_POST['username'];
-$username=addslashes($username);//防止SQL注入
+$username = addslashes($username);//防止SQL注入
 $password = md5($_POST['password']);
 $verify = $_POST['verify'];
 $verify_1 = $_SESSION['verify'];
-$autoFlag = $_POST['autoFlag'];
+$autoFlag = !empty($_POST['autoFlag']) ? $_POST['autoFlag'] : null;
 if ($verify == $verify_1) {
     $sql = "select * from shop_admin where username='{$username}' and password='{$password}'";
     $row = checkAdmin($sql);
