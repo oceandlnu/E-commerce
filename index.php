@@ -4,6 +4,10 @@ $cates = getAllCate();
 if (empty($cates)) {
     alertMes("不好意思，网站维护中！", "https://oceandlnu.github.io");
 }
+$_SESSION['loginFlag'] = !empty($_SESSION['loginFlag']) ? $_SESSION['loginFlag'] : null;
+$_SESSION['username'] = !empty($_SESSION['username']) ? $_SESSION['username'] : null;
+$_COOKIE['loginFlag'] = !empty($_COOKIE['loginFlag']) ? $_COOKIE['loginFlag'] : null;
+$_COOKIE['username'] = !empty($_COOKIE['username']) ? $_COOKIE['username'] : null;
 $smarty = new Setting_Smarty();
 //$smarty->testInstall();
 $smarty->assign('_SESSION', $_SESSION);

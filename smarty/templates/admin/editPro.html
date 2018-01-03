@@ -46,8 +46,7 @@
             <td>
                 <select name="cId">
                     {#foreach $rows as $row#}
-                    <option value="{#$row.id#}" {#if $row.id eq $proInfo.id#}selected="selected" {#
-                    /if#}>{#$row.cName#}</option>
+                    <option value="{#$row.id#}" {#if $row.id eq $proInfo.id#}selected="selected" {#/if#}>{#$row.cName#}</option>
                     {#/foreach#}
                 </select>
             </td>
